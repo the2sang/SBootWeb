@@ -1,4 +1,9 @@
+<%@ page import="com.kdn.sbootweb.vo.MproMstVO" %>
+<%@ page import="com.kdn.sbootweb.vo.MproDetVO" %>
+<%@ page import="java.util.List" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,6 +22,7 @@
       border: 1px solid black;
       border-collapse: collapse;
       margin: 3px;
+      padding: 5px;
     }
 
     .header-table th, td {
@@ -67,12 +73,58 @@
       text-align: center;
     }
 
+    button {
+      all:unset;
+      background-color: steelblue;
+      color: white;
+      padding: 5px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 12px;
+    }
+
+    button:hover {
+      background-color: #06357a;
+      color: #f0f0f0;
+
+    }
+
+    .process {
+      float: right;
+      margin: 5px;
+    }
+
+    .confirm {
+      float: right;
+      margin: 5px;
+    }
+
   </style>
+
+  <script type="text/javascript">
+
+    function confirmMproData(check) {
+      location.href = "/confirmMproDetData?confirmData=" + check;
+    }
+
+
+  </script>
 
 </head>
 
 <body>
-<h2 style="margin: 20px">개별관리 자재 생산정보 내역서</h2>
+<h2 style="margin: 20px">개별관리 자재 생산정보 내역서(개폐기)</h2>
+
+<%
+
+  MproMstVO header = (MproMstVO)request.getAttribute("mproMstVO");
+  List<MproDetVO> detailList = (List<MproDetVO>)request.getAttribute("mproDetVOList");
+
+%>
+
+
+
+
 <table class="header-table">
   <tr>
     <th style="width: 60px">주문번호</th>
@@ -100,6 +152,8 @@
 
 <div style="margin: 15px"></div>
 
+<div class="container">
+
 <table class="header-table">
   <tr>
     <th style="width: 60px">자재번호</th>
@@ -110,17 +164,17 @@
     <th style="width: 82px">납품수량</th>
   </tr>
   <tr>
-    <td>126474</td>
-    <td>고효율주상변압기,100KVA(난연유),유탭</td>
-    <td style="text-align: right">13</td>
-    <td style="text-align: right">1931510</td>
-    <td style="text-align: right">7726080</td>
-    <td style="text-align: right">13</td>
+    <td>${mproMstVO.matnr}</td>
+    <td>${mproMstVO.txz01}</td>
+    <td style="text-align: right">${mproMstVO.menge}</td>
+    <td style="text-align: right">${mproMstVO.netpr}</td>
+    <td style="text-align: right">${mproMstVO.netwr}</td>
+    <td style="text-align: right">${mproMstVO.zbpmng}</td>
   </tr>
 </table>
 
 
-
+<form class="mproForm"  action="/updateMproDetList" method="post" >
 <table class="detail-table">
   <tr>
     <th style="width: 120px">표준인식번호</th>
@@ -139,17 +193,31 @@
     <th style="width: 80px; background-color: #fff3cd">최저보증<br> 가스압력(Mpa)</th>
     <th style="width: 80px; background-color: #fff3cd">가스량</th>
   </tr>
+  <%
+    for (MproDetVO vo : detailList) {
+  %>
+
   <tr>
-    <td style="text-align: center; background-color: #f0f0f0" >20210201-00000001</td>
+    <input type="hidden" name="ebeln" value="<%= vo.getEbeln()%>" >
+    <input type="hidden" name="lifnr" value="<%= vo.getLifnr()%>" >
+    <input type="hidden" name="lifnrGr" value="<%= vo.getLifnrGr()%>" >
+    <input type="hidden" name="ebelp" value="<%= vo.getEbelp()%>" >
+    <input type="hidden" name="matsn" value="<%= vo.getMatsn()%>" >
+    <input type="hidden" name="werks" value="<%= vo.getWerks()%>" >
+    <input type="hidden" name="eindt" value="<%= vo.getEindt()%>" >
+    <input type="hidden" name="prdft" value="<%= vo.getPrdft()%>" >
+    <input type="hidden" name="prnam" value="<%= vo.getPrnam()%>" >
+
+    <td style="text-align: center; background-color: #f0f0f0" ><%= vo.getMatsn() %></td>
     <td style="text-align: center; background-color: #f0f0f0">10000646998</td>
     <td style="text-align: center">
       <input type="text" name="" size="12" maxlength="12" class="input-class" value="202008220023" >
     </td>
     <td style="text-align: center">
-      <input type="text" name="" size="8" maxlength="8" class="input-class" value="20210204" >
+      <input type="text" name="prdsn" size="12" class="input-class"  value="<%= vo.getPrdsn() %>" >
     </td>
     <td style="text-align: center">
-      <input type="text" name="" size="10" maxlength="10" class="input-class" value="신영중전기" >
+      <input type="text" name="prddt" size="8" class="input-class" value="<%= vo.getPrddt() %>" >
     </td>
     <td style="text-align: center">
       <input type="text" name="" size="10" maxlength="10" class="input-class" value="부산공장" >
@@ -182,8 +250,27 @@
       <input type="text" name="" size="10" maxlength="14" class="input-class" value="" >
     </td>
   </tr>
+  <%
+    }
+  %>
+
 </table>
 
+  <div class="process">
+    <button type="submit" name="btnTempSave" >임시저장</button>
+  </div>
+
+</form>
+
+<button onclick="confirmMproData('confirm');"  >확정</button>
+<button onclick="confirmMproData('cancel');"  >확정취소</button>
+
+</div>
+
+<%
+  session.setAttribute("mproMstVO", header);
+  session.setAttribute("mproDetVOList", detailList);
+%>
 
 </body>
 </html>

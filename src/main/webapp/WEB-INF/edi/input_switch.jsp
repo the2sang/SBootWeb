@@ -1,0 +1,189 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>자재 생산정보 내역서(개폐기)</title>
+
+  <style>
+
+    body {
+      padding-left: 15px;
+    }
+
+    .header-table {
+      border: 1px solid black;
+      border-collapse: collapse;
+      margin: 3px;
+    }
+
+    .header-table th, td {
+      border:1px solid black;
+      text-align: left;
+      padding: 6px;
+      margin-top: 5px;
+      margin-bottom: 5px;
+      font-size: 12px;
+    }
+
+    .header-table th {
+      background-color: #b6d4fe ;
+      text-align: center;
+    }
+
+    .header-table td {
+      background-color: #f0f0f0;
+    }
+
+    .detail-table {
+      border: 1px solid black;
+      border-collapse: collapse;
+      margin: 3px;
+    }
+
+    .detail-table th, td {
+      border:1px solid black;
+      text-align: left;
+      padding: 6px;
+      margin-top: 5px;
+      margin-bottom: 5px;
+      font-size: 12px;
+    }
+
+    .detail-table th {
+      background-color: #b6d4fe ;
+      text-align: center;
+    }
+
+    h2 {
+      padding-bottom: 20px;
+      text-align: center;
+    }
+
+    .input-class {
+      font-size: 12px;
+      text-align: center;
+    }
+
+  </style>
+
+</head>
+
+<body>
+<h2 style="margin: 20px">개별관리 자재 생산정보 내역서</h2>
+<table class="header-table">
+  <tr>
+    <th style="width: 60px">주문번호</th>
+    <td>4100100208</td>
+    <td style="width: 200px">blank</td>
+    <th style="width: 60px">주문일자</th>
+    <td colspan="2">2021.02.01</td>
+  </tr>
+  <tr>
+    <th>납품업체</th>
+    <td>blank</td>
+    <td>blank</td>
+    <th>계약업체</th>
+    <td>1188200345</td>
+    <td style="width: 200px">한국전기공업협동조합</td>
+  </tr>
+  <tr>
+    <th>입고사업소</th>
+    <td>8***</td>
+    <td>경인권 물류센터</td>
+    <th>납기일자</th>
+    <td colspan="2">2021.02.20</td>
+  </tr>
+</table>
+
+<div style="margin: 15px"></div>
+
+<table class="header-table">
+  <tr>
+    <th style="width: 60px">자재번호</th>
+    <th style="width: 278px">자재명</th>
+    <th style="width: 60px">주문수량</th>
+    <th style="width: 86px">단가</th>
+    <th style="width: 86px">금액</th>
+    <th style="width: 82px">납품수량</th>
+  </tr>
+  <tr>
+    <td>126474</td>
+    <td>고효율주상변압기,100KVA(난연유),유탭</td>
+    <td style="text-align: right">13</td>
+    <td style="text-align: right">1931510</td>
+    <td style="text-align: right">7726080</td>
+    <td style="text-align: right">13</td>
+  </tr>
+</table>
+
+
+
+<table class="detail-table">
+  <tr>
+    <th style="width: 120px">표준인식번호</th>
+    <th style="width: 80px">검사 LOT번호</th>
+    <th style="width: 90px; background-color: #fff3cd">제조번호</th>
+    <th style="width: 70px; background-color: #fff3cd" class="detail-input-th">생산일자</th>
+    <th style="width: 120px; background-color: #fff3cd">제조사</th>
+    <th style="width: 120px; background-color: #fff3cd">생산공장</th>
+    <th style="width: 100px; background-color: #fff3cd">정격전류(A)</th>
+    <th style="width: 120px; background-color: #fff3cd">스위칭 매체</th>
+    <th style="width: 60px; background-color: #fff3cd">절연매체</th>
+    <th style="width: 100px; background-color: #fff3cd">매커니즘<br> 조작방식</th>
+    <th style="width: 120px; background-color: #fff3cd">부싱타입(1차)</th>
+    <th style="width: 80px; background-color: #fff3cd">부싱타입(2차)</th>
+    <th style="width: 80px; background-color: #fff3cd">정격가스압력(Mpa)</th>
+    <th style="width: 80px; background-color: #fff3cd">최저보증<br> 가스압력(Mpa)</th>
+    <th style="width: 80px; background-color: #fff3cd">가스량</th>
+  </tr>
+  <tr>
+    <td style="text-align: center; background-color: #f0f0f0" >20210201-00000001</td>
+    <td style="text-align: center; background-color: #f0f0f0">10000646998</td>
+    <td style="text-align: center">
+      <input type="text" name="" size="12" maxlength="12" class="input-class" value="202008220023" >
+    </td>
+    <td style="text-align: center">
+      <input type="text" name="" size="8" maxlength="8" class="input-class" value="20210204" >
+    </td>
+    <td style="text-align: center">
+      <input type="text" name="" size="10" maxlength="10" class="input-class" value="신영중전기" >
+    </td>
+    <td style="text-align: center">
+      <input type="text" name="" size="10" maxlength="10" class="input-class" value="부산공장" >
+    </td>
+    <td style="text-align: center">
+      <input type="text" name="" size="8" maxlength="14" class="input-class" value="400" >
+    </td>
+    <td style="text-align: center">
+      <input type="text" name="" size="10" maxlength="14" class="input-class" value="Vacuum" >
+    </td>
+    <td style="text-align: center">
+      <input type="text" name="" size="10" maxlength="14" class="input-class" value="Epoxy" >
+    </td>
+    <td style="text-align: center">
+      <input type="text" name="" size="10" maxlength="14" class="input-class" value="magnetic" >
+    </td>
+    <td style="text-align: center">
+      <input type="text" name="" size="14" maxlength="14" class="input-class" value="Kraft" >
+    </td>
+    <td style="text-align: center">
+      <input type="text" name="" size="14" maxlength="14" class="input-class" value="신영중전기" >
+    </td>
+    <td style="text-align: center">
+      <input type="text" name="" size="14" maxlength="14" class="input-class" value="" >
+    </td>
+    <td style="text-align: center">
+      <input type="text" name="" size="10" maxlength="14" class="input-class" value="" >
+    </td>
+    <td style="text-align: center">
+      <input type="text" name="" size="10" maxlength="14" class="input-class" value="" >
+    </td>
+  </tr>
+</table>
+
+
+</body>
+</html>

@@ -31,6 +31,23 @@ public class EDIController {
     }
 
 
+    @RequestMapping(method = RequestMethod.GET, value = "/switch")
+    public ModelAndView getSwitchList() {
+
+        ModelAndView mv = new ModelAndView();
+        MproMstVO mproMstVO = new MproMstVO();
+        List<MproMstVO> mproDetVOList = new ArrayList<>();
+
+
+        mv.addObject("mproMstVO", mproMstVO);
+        mv.addObject("mproDetVOList", mproDetVOList);
+        mv.setViewName("input_switch");
+
+        return mv;
+
+    }
+
+
     @RequestMapping(method = RequestMethod.GET, value = "/trans")
     public ModelAndView getTransList() {
 

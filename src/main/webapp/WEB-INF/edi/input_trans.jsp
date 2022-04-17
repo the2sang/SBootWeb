@@ -90,7 +90,6 @@
     button:hover {
       background-color: #06357a;
       color: #f0f0f0;
-
     }
 
     .process {
@@ -109,24 +108,21 @@
 
     $(document).ready(function(){
       // process..
-      //alert("jquery-loding...");
       let confirmDefault;
 
       confirmDefault = <%= request.getSession().getAttribute("confirmCheck")%>;
 
-      //alert("confirmDefault:" + confirmDefault);
-
-      if (confirmDefault == true) {
-        <%--alert("confirm check:" + <%= request.getSession().getAttribute("confirmCheck")%>);--%>
-
+      if (confirmDefault === true ) {
         alert("확정되어 전송 상태로 전환되었습니다. 확정취소하시면 다시 등록할 수 있습니다.");
         $(".input-class").attr("disabled", true);
+        $('#tempSaveBtn').attr("disabled", true);
+        $('#tempSaveBtn').css({'color':'white', 'background-color':'darkgrey'});
 
-<%--        <% request.getSession().setAttribute("confirmCheck", false); %>--%>
-        confirmDefault = false;
+        <% request.getSession().removeAttribute("confirmCheck"); %>
       }
 
-      $('cancelButton').click(function(){
+      $('#cancelBtn').click(function(){
+        //alert("cancel");
         <% request.getSession().setAttribute("confirmCheck", false); %>
         confirmDefault = false;
         $(".input-class").attr("disabled", false);
@@ -281,13 +277,13 @@
     </table>
 
     <div class="process">
-      <button type="submit" name="btnTempSave" >임시저장</button>
+      <button type="submit" id="tempSaveBtn" name="btnTempSave" >임시저장</button>
     </div>
 
   </form>
 
     <button onclick="confirmMproData('confirm');"  >확정</button>
-    <button onclick="confirmMproData('cancel');"  name="cancleButton" >확정취소</button>
+    <button onclick="confirmMproData('cancel');"  id="cancelBtn" >확정취소</button>
 
 </div>
 

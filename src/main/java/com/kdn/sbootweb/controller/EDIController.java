@@ -151,22 +151,24 @@ public class EDIController {
         MproMstVO mproMstVO = (MproMstVO)req.getSession().getAttribute("mproMstVO");
         List<MproDetVO> mproDetVOList = (List<MproDetVO>)req.getSession().getAttribute("mproDetVOList");
 
-        if (confirmCheck.equals("confirm")) {
-            mproMstVO.setInputSt("C"); //확정상태
-        } else {
-            mproMstVO.setInputSt("S"); //저장상태
-        }
-
         DataSource ds = jdbcTemplate.getDataSource();
 
         boolean checkUpdate = MproMstDAO.confirmMproDetData(ds, mproMstVO);
+
+        if (confirmCheck.equals("confirm")) {
+            mproMstVO.setInputSt("C"); //확정상태
+            req.getSession().setAttribute("confirmCheck", true);
+        } else {
+            mproMstVO.setInputSt("S"); //저장상태
+            req.getSession().setAttribute("confirmCheck", false);
+        }
+
+
         ModelAndView mv = new ModelAndView();
         //mv.addObject("confirmCheck", "true");
         mv.addObject("mproMstVO" + mproMstVO);
         mv.addObject("mproDetVOList" + mproDetVOList);
         mv.setViewName("input_trans");
-
-        req.getSession().setAttribute("confirmCheck", checkUpdate);
 
         //model.addAttribute("confirmCheck", checkUpdate);
         return new RedirectView("/trans");

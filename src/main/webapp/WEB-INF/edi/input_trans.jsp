@@ -150,13 +150,8 @@
     function confirmMproData(check) {
       location.href = "/confirmMproDetData?confirmData=" + check;
     }
-
-
   </script>
-
 </head>
-
-
 
 <body>
 <h2 style="margin: 20px">개별관리 자재 생산정보 내역서(변압기)</h2>
@@ -167,8 +162,6 @@
   List<MproDetVO> detailList = (List<MproDetVO>)request.getAttribute("mproDetVOList");
 
 %>
-
-
 
 <table class="header-table">
   <tr>

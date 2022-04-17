@@ -48,7 +48,7 @@
 <h3>자재내역서 등록</h3>
     <ul>
         <li><a href="javascript:void(0);" onclick="winPopupTrans();" class="linkButton" >자재내역서 등록(변압기) - 4100100208,1188200345,1188200345,12345</a></li>
-        <li><a href="javascript:void(0);" onclick="winPopupSwitch();" class="linkButton">자재내역서 등록(개페기) - 4100100209,1188200345,1188200345,12345</a></li>
+        <li><a href="javascript:void(0);" onclick="winPopupSwitch();" class="linkButton">자재내역서 등록(개페기) - 4100100209,1188200345,1188200345,22345</a></li>
     </ul>
 </body>
 </html>

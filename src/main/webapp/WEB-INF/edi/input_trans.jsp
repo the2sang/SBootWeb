@@ -128,6 +128,20 @@
         $(".input-class").attr("disabled", false);
       });
 
+      $('#tempSaveBtn').click(function () {
+        $('form').submit();
+
+          let check =  <%= request.getSession().getAttribute("updateResult")%>;
+
+          if (check === true) {
+            alert("저장성공");
+
+          } else {
+            alert("저장실패");
+          }
+
+      });
+
     });
 
     function confirmMproData(check) {
@@ -277,7 +291,7 @@
     </table>
 
     <div class="process">
-      <button type="submit" id="tempSaveBtn" name="btnTempSave" >임시저장</button>
+      <button onclick="saveMpro();"  id="tempSaveBtn" name="btnTempSave" >임시저장</button>
     </div>
 
   </form>

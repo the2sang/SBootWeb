@@ -128,16 +128,16 @@ public class EDIController {
             saveList.add(vo);
         }
 
-        MproDetDAO.saveMproDetList(ds, saveList);
-
-//        System.out.println("Header:" + mproMstVO);
-//        System.out.println("Details:" + saveList);
+        boolean updateResult = MproDetDAO.saveMproDetList(ds, saveList);
 
 
         ModelAndView mv = new ModelAndView();
         mv.addObject("mproMstVO", mproMstVO);
         mv.addObject("mproDetVOList", saveList);
+        mv.addObject("updateResult", updateResult);
         mv.setViewName("input_trans");
+
+        req.getSession().setAttribute("updateResult", updateResult);
 
         return mv;
     }

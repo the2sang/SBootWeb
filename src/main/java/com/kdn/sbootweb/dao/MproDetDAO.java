@@ -93,7 +93,7 @@ public class MproDetDAO {
 
     }
 
-    public static void saveMproDetList(DataSource ds, List<MproDetVO> listMproDet) {
+    public static boolean saveMproDetList(DataSource ds, List<MproDetVO> listMproDet) {
 
         Connection conn = null;
         PreparedStatement ps = null;
@@ -128,6 +128,7 @@ public class MproDetDAO {
 
         } catch (Exception e) {
             System.out.println("Save Error:" + e.getMessage());
+            return false;
         } finally {
             try {
                 if (ps != null)
@@ -138,6 +139,7 @@ public class MproDetDAO {
                 e.getStackTrace();
             }
         }
+        return true;
 
     }
 

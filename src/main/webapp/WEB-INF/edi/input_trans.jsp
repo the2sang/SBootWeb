@@ -128,19 +128,22 @@
         $(".input-class").attr("disabled", false);
       });
 
-      $('#tempSaveBtn').click(function () {
-        $('form').submit();
-
-          let check =  <%= request.getSession().getAttribute("updateResult")%>;
-
-          if (check === true) {
+      $("#tempSaveBtn").click(function(ev) {
+        var form = $("#saveForm");
+        var url = form.attr('action');
+        $.ajax({
+          type: "POST",
+          url: url,
+          data: form.serialize(),
+          success: function(data) {
             alert("저장성공");
-
-          } else {
+          },
+          error: function(data) {
             alert("저장실패");
           }
-
+        });
       });
+
 
     });
 
@@ -214,7 +217,7 @@
         <td style="text-align: right">${mproMstVO.zbpmng}</td>
       </tr>
   </table>
-  <form class="mproForm"  action="/updateMproDetList" method="post" >
+  <form class="mproForm" id="saveForm"  action="/updateMproDetList" method="post" >
     <table class="detail-table">
       <tr>
         <th style="width: 120px">표준인식번호</th>
@@ -291,7 +294,7 @@
     </table>
 
     <div class="process">
-      <button onclick="saveMpro();"  id="tempSaveBtn" name="btnTempSave" >임시저장</button>
+      <button id="tempSaveBtn" type="submit" name="btnTempSave" >임시저장</button>
     </div>
 
   </form>

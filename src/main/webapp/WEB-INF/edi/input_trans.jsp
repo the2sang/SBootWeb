@@ -10,7 +10,11 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+
+
   <title>자재 생산정보 내역서(변압기)</title>
+
+  <script src="static/js/jquery-3.6.0.min.js" type="text/javascript" ></script>
 
   <style>
 
@@ -102,6 +106,33 @@
   </style>
 
   <script type="text/javascript">
+
+    $(document).ready(function(){
+      // process..
+      //alert("jquery-loding...");
+      let confirmDefault;
+
+      confirmDefault = <%= request.getSession().getAttribute("confirmCheck")%>;
+
+      //alert("confirmDefault:" + confirmDefault);
+
+      if (confirmDefault == true) {
+        <%--alert("confirm check:" + <%= request.getSession().getAttribute("confirmCheck")%>);--%>
+
+        alert("확정되어 전송 상태로 전환되었습니다. 확정취소하시면 다시 등록할 수 있습니다.");
+        $(".input-class").attr("disabled", true);
+
+<%--        <% request.getSession().setAttribute("confirmCheck", false); %>--%>
+        confirmDefault = false;
+      }
+
+      $('cancelButton').click(function(){
+        <% request.getSession().setAttribute("confirmCheck", false); %>
+        confirmDefault = false;
+        $(".input-class").attr("disabled", false);
+      });
+
+    });
 
     function confirmMproData(check) {
       location.href = "/confirmMproDetData?confirmData=" + check;
@@ -256,7 +287,7 @@
   </form>
 
     <button onclick="confirmMproData('confirm');"  >확정</button>
-    <button onclick="confirmMproData('cancel');"  >확정취소</button>
+    <button onclick="confirmMproData('cancel');"  name="cancleButton" >확정취소</button>
 
 </div>
 

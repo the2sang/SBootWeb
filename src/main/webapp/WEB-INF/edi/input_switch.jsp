@@ -122,9 +122,6 @@
 
 %>
 
-
-
-
 <table class="header-table">
   <tr>
     <th style="width: 60px">주문번호</th>

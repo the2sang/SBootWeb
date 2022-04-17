@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
@@ -142,7 +143,8 @@ public class EDIController {
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/confirmMproDetData")
-    public RedirectView confirmMproDetData(HttpServletRequest req, HttpServletResponse res, @RequestParam(value = "confirmData") String confirmCheck) {
+    public RedirectView confirmMproDetData(HttpServletRequest req, HttpServletResponse res, Model model,
+                                           @RequestParam(value = "confirmData") String confirmCheck) {
 
         System.out.println("confirmCHeck:" + confirmCheck);
 
@@ -159,10 +161,14 @@ public class EDIController {
 
         boolean checkUpdate = MproMstDAO.confirmMproDetData(ds, mproMstVO);
         ModelAndView mv = new ModelAndView();
-        mv.addObject("updateCheck", checkUpdate);
+        //mv.addObject("confirmCheck", "true");
         mv.addObject("mproMstVO" + mproMstVO);
         mv.addObject("mproDetVOList" + mproDetVOList);
         mv.setViewName("input_trans");
+
+        req.getSession().setAttribute("confirmCheck", checkUpdate);
+
+        //model.addAttribute("confirmCheck", checkUpdate);
         return new RedirectView("/trans");
     }
 

@@ -34,10 +34,21 @@ public class EDIController {
     @RequestMapping(method = RequestMethod.GET, value = "/switch")
     public ModelAndView getSwitchList() {
 
-        ModelAndView mv = new ModelAndView();
-        MproMstVO mproMstVO = new MproMstVO();
-        List<MproMstVO> mproDetVOList = new ArrayList<>();
+        String ebeln = "4100100208";
+        String lifnr = "1188200345";
+        String lifnrGr = "1188200345";
+        String ebelp = "22345";
 
+        ModelAndView mv = new ModelAndView();
+        MproMstDAO mproMstDAO = new MproMstDAO();
+        MproDetDAO mproDetDAO = new MproDetDAO();
+        MproMstVO mproMstVO;
+
+        DataSource ds = jdbcTemplate.getDataSource();
+
+        mproMstVO = mproMstDAO.getAssingOrderMst(ds, ebeln, lifnr, lifnrGr, ebelp);
+
+        List<MproDetVO> mproDetVOList = mproDetDAO.getAssignOrderDetList(ds, ebeln, lifnr, lifnrGr, ebelp);
 
         mv.addObject("mproMstVO", mproMstVO);
         mv.addObject("mproDetVOList", mproDetVOList);
@@ -54,7 +65,7 @@ public class EDIController {
         ModelAndView mv = new ModelAndView();
         MproMstDAO mproMstDAO = new MproMstDAO();
         MproDetDAO mproDetDAO = new MproDetDAO();
-        MproMstVO mproMstVO = new MproMstVO();
+        MproMstVO mproMstVO;
 
         String ebeln = "4100100208";
         String lifnr = "1188200345";

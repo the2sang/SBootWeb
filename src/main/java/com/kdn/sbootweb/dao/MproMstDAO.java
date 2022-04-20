@@ -50,7 +50,7 @@ public class MproMstDAO {
                 mproMstVO.setZbpmng(rs.getString("ZBPMNG"));
                 mproMstVO.setMeins(rs.getString("MEINS"));
                 mproMstVO.setWaers(rs.getString("WAERS"));
-                mproMstVO.setPrueflog(rs.getString("FRUEFLOG")); //
+                mproMstVO.setPrueflog(rs.getString("PRUEFLOS")); //
                 mproMstVO.setMatsnFr(rs.getString("MATSN_FR"));
                 mproMstVO.setMatsnTo(rs.getString("MATSN_TO"));
                 mproMstVO.setMatsnCnt(rs.getLong("MATSN_CNT")); //

@@ -160,10 +160,9 @@ public class EDIController {
             vo.setAtwrt00204(atwrt00204s[i]);
             vo.setAtwrt00205(atwrt00205s[i]);
             vo.setAtwrt00206(atwrt00206s[i]);
-            vo.setAtwrt00207(atwrt00207s[i]);
-            vo.setAtwrt00208(atwrt00208s[i]);
-            vo.setAtwrt00209(atwrt00209s[i]);
-
+            vo.setAtwrt00207(new Float(atwrt00207s[i]).floatValue());
+            vo.setAtwrt00208(new Float(atwrt00208s[i]).floatValue());
+            vo.setAtwrt00209(new Float(atwrt00209s[i]).floatValue());
 
             saveList.add(vo);
         }

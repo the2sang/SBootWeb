@@ -67,9 +67,9 @@ public class MproDetDAO {
                 mproDetVO.setAtwrt00204(rs.getString("ATWRT_002_04"));
                 mproDetVO.setAtwrt00205(rs.getString("ATWRT_002_05"));
                 mproDetVO.setAtwrt00206(rs.getString("ATWRT_002_06"));
-                mproDetVO.setAtwrt00207(rs.getString("ATWRT_002_07"));
-                mproDetVO.setAtwrt00208(rs.getString("ATWRT_002_08"));
-                mproDetVO.setAtwrt00209(rs.getString("ATWRT_002_09"));
+                mproDetVO.setAtwrt00207(rs.getFloat("ATWRT_002_07"));
+                mproDetVO.setAtwrt00208(rs.getFloat("ATWRT_002_08"));
+                mproDetVO.setAtwrt00209(rs.getFloat("ATWRT_002_09"));
                 mproDetVO.setRecvst(rs.getString("RECVST"));
                 mproDetVO.setRecvmg(rs.getString("RECVMG"));
 
@@ -140,9 +140,9 @@ public class MproDetDAO {
                 ps.setString(19, vo.getAtwrt00204());
                 ps.setString(20, vo.getAtwrt00205());
                 ps.setString(21, vo.getAtwrt00206());
-                ps.setString(22, vo.getAtwrt00207());
-                ps.setString(23, vo.getAtwrt00208());
-                ps.setString(24, vo.getAtwrt00209());
+                ps.setFloat(22, vo.getAtwrt00207());
+                ps.setFloat(23, vo.getAtwrt00208());
+                ps.setFloat(24, vo.getAtwrt00209());
 
                 ps.setString(25, vo.getEbeln());  //where
                 ps.setString(26, vo.getLifnr());

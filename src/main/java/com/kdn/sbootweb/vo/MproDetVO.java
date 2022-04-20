@@ -28,9 +28,9 @@ public class MproDetVO {
     private String atwrt00204;  //24.개폐기 매커니즘 조작방식
     private String atwrt00205;  //25.개폐기 1차 부싱타입
     private String atwrt00206;  //26.개폐기 2차 부싱타입
-    private String atwrt00207;  //27.개폐기 정격가스압력
-    private String atwrt00208;  //28.개폐기 최저보증가시압력
-    private String atwrt00209;  //29.개폐기 가스량
+    private float atwrt00207;  //27.개폐기 정격가스압력
+    private float atwrt00208;  //28.개폐기 최저보증가시압력
+    private float atwrt00209;  //29.개폐기 가스량
     private String recvst;      //30.개별자재 생산내역서 내용 점검 결과 (S:성공, E:실패)
     private String recvmg;      //31.개별자재 생산내역서 내용 점검 결과 (오류 메세지 기록)
 
@@ -245,27 +245,27 @@ public class MproDetVO {
         this.atwrt00206 = atwrt00206;
     }
 
-    public String getAtwrt00207() {
+    public float getAtwrt00207() {
         return atwrt00207;
     }
 
-    public void setAtwrt00207(String atwrt00207) {
+    public void setAtwrt00207(float atwrt00207) {
         this.atwrt00207 = atwrt00207;
     }
 
-    public String getAtwrt00208() {
+    public float getAtwrt00208() {
         return atwrt00208;
     }
 
-    public void setAtwrt00208(String atwrt00208) {
+    public void setAtwrt00208(float atwrt00208) {
         this.atwrt00208 = atwrt00208;
     }
 
-    public String getAtwrt00209() {
+    public float getAtwrt00209() {
         return atwrt00209;
     }
 
-    public void setAtwrt00209(String atwrt00209) {
+    public void setAtwrt00209(float atwrt00209) {
         this.atwrt00209 = atwrt00209;
     }
 
@@ -314,9 +314,9 @@ public class MproDetVO {
                 ", atwrt00204='" + atwrt00204 + '\'' +
                 ", atwrt00205='" + atwrt00205 + '\'' +
                 ", atwrt00206='" + atwrt00206 + '\'' +
-                ", atwrt00207='" + atwrt00207 + '\'' +
-                ", atwrt00208='" + atwrt00208 + '\'' +
-                ", atwrt00209='" + atwrt00209 + '\'' +
+                ", atwrt00207=" + atwrt00207 +
+                ", atwrt00208=" + atwrt00208 +
+                ", atwrt00209=" + atwrt00209 +
                 ", recvst='" + recvst + '\'' +
                 ", recvmg='" + recvmg + '\'' +
                 '}';

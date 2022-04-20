@@ -200,6 +200,7 @@
         <th style="width: 86px">단가</th>
         <th style="width: 86px">금액</th>
         <th style="width: 82px">납품수량</th>
+        <th style="width: 82px">LOT번호</th>
       </tr>
       <tr>
         <td>${mproMstVO.matnr}</td>
@@ -208,17 +209,20 @@
         <td style="text-align: right">${mproMstVO.netpr}</td>
         <td style="text-align: right">${mproMstVO.netwr}</td>
         <td style="text-align: right">${mproMstVO.zbpmng}</td>
+        <td style="text-align: right">${mproMstVO.prueflog}</td>
       </tr>
   </table>
   <form class="mproForm" id="saveForm"  action="/updateMproDetList" method="post" >
     <table class="detail-table">
       <tr>
         <th style="width: 120px">표준인식번호</th>
-        <th style="width: 80px">검사 LOT번호</th>
+        <th style="width: 120px; background-color: #fff3cd">제조사</th>
         <th style="width: 90px; background-color: #fff3cd">제조번호</th>
         <th style="width: 70px; background-color: #fff3cd" class="detail-input-th">생산일자</th>
-        <th style="width: 120px; background-color: #fff3cd">제조사</th>
         <th style="width: 120px; background-color: #fff3cd">생산공장</th>
+        <th style="width: 120px; background-color: #fff3cd">제작자</th>
+        <th style="width: 120px; background-color: #fff3cd">인도지시서번호</th>
+        <th style="width: 120px; background-color: #fff3cd">인도지시서품목</th>
         <th style="width: 120px; background-color: #fff3cd">1차 부싱타입</th>
         <th style="width: 120px; background-color: #fff3cd">2차 부싱타입</th>
         <th style="width: 60px; background-color: #fff3cd">권선종류</th>
@@ -227,10 +231,10 @@
         <th style="width: 80px; background-color: #fff3cd">유량(L)</th>
         <th style="width: 80px; background-color: #fff3cd">무부하손(W)</th>
         <th style="width: 80px; background-color: #fff3cd">부하손(W)</th>
+        <th style="width: 80px; background-color: #fff3cd">변압기 절연지 종류</th>
       </tr>
       <%
         for (MproDetVO vo : detailList) {
-
 
       %>
       <tr>
@@ -241,7 +245,7 @@
         <input type="hidden" name="matsn" value="<%= vo.getMatsn()%>" >
 
         <td style="text-align: center; background-color: #f0f0f0" ><%= vo.getMatsn() %></td>
-        <td style="text-align: center; background-color: #f0f0f0">10000646998</td>
+        <td style="text-align: center; background-color: #f0f0f0" ><%= vo.getLifnrGr() %></td>
         <td style="text-align: center">
           <input type="text" name="prdsn" size="12" class="input-class"  value="<%= vo.getPrdsn() %>" >
         </td>
@@ -249,34 +253,43 @@
           <input type="text" name="prddt" size="8" class="input-class" value="<%= vo.getPrddt() %>" >
         </td>
         <td style="text-align: center">
-          <input type="text" name="prdft" size="12" class="input-class" value="<%= vo.getPrdft()%>>"  >
+          <input type="text" name="prdft" size="12" class="input-class" value="<%= vo.getPrdft()%>"  >
         </td>
         <td style="text-align: center">
-          <input type="text" name="" size="10" class="input-class" value="부산공장" >
+          <input type="text" name="prnam" size="10" class="input-class" value="<%= vo.getPrnam()%>" >
         </td>
         <td style="text-align: center">
-          <input type="text" name="" size="14" maxlength="14" class="input-class" value="자기제" >
+          <input type="text" name="ebelnPo" size="14" maxlength="14" class="input-class" value="<%= vo.getEbelnPo()%>>" >
         </td>
         <td style="text-align: center">
-          <input type="text" name="" size="14" maxlength="14" class="input-class" value="자기제" >
+          <input type="text" name="ebelpPo" size="14" maxlength="14" class="input-class" value="<%= vo.getEbelpPo()%>" >
         </td>
         <td style="text-align: center">
-          <input type="text" name="" size="14" maxlength="14" class="input-class" value="Cu" >
+          <input type="text" name="atwrt00101" size="3" maxlength="1" class="input-class" value=""<%= vo.getAtwrt00101()%>" >
         </td>
         <td style="text-align: center">
-          <input type="text" name="" size="14" maxlength="14" class="input-class" value="광유" >
+          <input type="text" name="atwrt00102" size="3" maxlength="1" class="input-class" value=""<%= vo.getAtwrt00102()%>" >
         </td>
         <td style="text-align: center">
-          <input type="text" name="" size="14" maxlength="14" class="input-class" value="Kraft" >
+          <input type="text" name="atwrt00103" size="3" maxlength="1" class="input-class" value=""<%= vo.getAtwrt00103()%>" >
         </td>
         <td style="text-align: center">
-          <input type="text" name="" size="14" maxlength="14" class="input-class" value="신영중전기" >
+          <input type="text" name="atwrt00104" size="3" maxlength="1" class="input-class" value=""<%= vo.getAtwrt00104()%>" >
         </td>
         <td style="text-align: center">
-          <input type="text" name="" size="14" maxlength="14" class="input-class" value="" >
+          <input type="text" name="atwrt00105" size="3" maxlength="1" class="input-class" value=""<%= vo.getAtwrt00105()%>" >
         </td>
         <td style="text-align: center">
-          <input type="text" name="" size="14" maxlength="14" class="input-class" value="" >
+          <input type="text" name="atwrt00106" size="3" maxlength="1" class="input-class" value=""<%= vo.getAtwrt00106()%>" >
+        </td>
+        <td style="text-align: center">
+          <input type="text" name="atwrt00107" size="3" maxlength="1" class="input-class" value=""<%= vo.getAtwrt00107()%>" >
+        </td>
+        <td style="text-align: center">
+          <input type="text" name="atwrt00108" size="3" maxlength="1" class="input-class" value=""<%= vo.getAtwrt00108()%>" >
+        </td>
+        <td style="text-align: center">
+          <input type="text" name="atwrt00109" size="3" maxlength="1" class="input-class" value=""<%= vo.getAtwrt00109()%>" >
         </td>
       </tr>
 <%

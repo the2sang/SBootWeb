@@ -259,7 +259,7 @@
           <input type="text" name="prnam" size="10" class="input-class" value="<%= vo.getPrnam()%>" >
         </td>
         <td style="text-align: center">
-          <input type="text" name="ebelnPo" size="14" maxlength="14" class="input-class" value="<%= vo.getEbelnPo()%>>" >
+          <input type="text" name="ebelnPo" size="14" maxlength="14" class="input-class" value="<%= vo.getEbelnPo()%>" >
         </td>
         <td style="text-align: center">
           <input type="text" name="ebelpPo" size="14" maxlength="14" class="input-class" value="<%= vo.getEbelpPo()%>" >

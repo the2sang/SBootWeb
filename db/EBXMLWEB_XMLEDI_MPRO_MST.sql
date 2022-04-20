@@ -9,7 +9,7 @@ create table XMLEDI_MPRO_MST
     EINDT       VARCHAR2(8), --추가(0419)     납기일자
     LIFNR_NM    VARCHAR2(35), -- 추가(0419)   계약업체명(한글)
     LIFNR_GRNM  VARCHAR2(35),  -- 추가(0419)  납품업체명(한글)
-    WERKS     VARCHAR2(5),
+    WERKS     VARCHAR2(5),     -- 추가 (0419)  입고사업소(코드)
     NAME1       VARCHAR2(30),     -- 추가(0419) 입고사업소명
     MATNR     VARCHAR2(16),
     TXZ01     VARCHAR2(40), --12
@@ -18,7 +18,7 @@ create table XMLEDI_MPRO_MST
     NETWR     VARCHAR2(18),
     ZBPMNG    VARCHAR2(18),
     MEINS     VARCHAR2(3),
-    WAERS       VARCHAR2(5),  -- 추가(0419) 통화
+    WAERS       VARCHAR2(5),
     PRUEFLOS    VARCHAR2(12),  -- 추가(0419) 검사로트 번호
     MATSN_FR  VARCHAR2(16), --20
     MATSN_TO  VARCHAR2(16),

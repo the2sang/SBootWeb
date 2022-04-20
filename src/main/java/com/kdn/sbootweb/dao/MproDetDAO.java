@@ -96,7 +96,7 @@ public class MproDetDAO {
 
     }
 
-    public static boolean saveMproDetList(DataSource ds, List<MproDetVO> listMproDet) {
+    public static boolean saveMproDetList(DataSource ds, List<MproDetVO> listMproDet, String type) {
 
         Connection conn = null;
         PreparedStatement ps = null;
@@ -105,15 +105,25 @@ public class MproDetDAO {
 
             conn = ds.getConnection();
 
-            String sql = "UPDATE XMLEDI_MPRO_DET SET PRDFT = ?, PRDSN= ?, PRDDT = ?, PRNAM = ? " + //1,2,3,4
+            String sql001 = "UPDATE XMLEDI_MPRO_DET SET PRDFT = ?, PRDSN= ?, PRDDT = ?, PRNAM = ? " + //1,2,3,4
                     " EBELN_PO = ? EBELP_PO = ? ATWRT_001_01 = ?  ATWRT_001_02 = ?  ATWRT_001_03 = ? " + //5,6,7,8,9
                     "  ATWRT_001_04 = ?  ATWRT_001_05 = ?  ATWRT_001_06 = ?  ATWRT_001_07 = ? " + //10,11,12,13
-                    "  ATWRT_001_08 = ?  ATWRT_001_09 = ?  ATWRT_002_01 = ?  ATWRT_002_02 = ? " + //14,15,16,17
+                    "  ATWRT_001_08 = ?  ATWRT_001_09 = ?  " + //22,23,24
+                    " WHERE EBELN = ? AND LIFNR = ? AND LIFNR_GR = ? AND EBELP = ? AND MATSN = ?"; //25,26,27, 28, 29
+
+            String sql002 = "UPDATE XMLEDI_MPRO_DET SET PRDFT = ?, PRDSN= ?, PRDDT = ?, PRNAM = ? " + //1,2,3,4
+                    " EBELN_PO = ? EBELP_PO = ?  ATWRT_002_01 = ?  ATWRT_002_02 = ? " + //14,15,16,17
                     "  ATWRT_002_03 = ?  ATWRT_002_04 = ?  ATWRT_002_05 = ?  ATWRT_002_06 = ? " + //18,19,20,21
                     "  ATWRT_002_07 = ?  ATWRT_002_08 = ?  ATWRT_002_09 = ? " + //22,23,24
                     " WHERE EBELN = ? AND LIFNR = ? AND LIFNR_GR = ? AND EBELP = ? AND MATSN = ?"; //25,26,27, 28, 29
+            if (type != null && type.equals("001")) {
+                ps = conn.prepareStatement(sql001);
+            } else if (type != null && type.equals("002")) {
+                ps = conn.prepareStatement(sql002);
+            } else {
+                return false;
+            }
 
-            ps = conn.prepareStatement(sql);
 
             for (MproDetVO vo:listMproDet) {
                 //update
@@ -124,36 +134,40 @@ public class MproDetDAO {
                 ps.setString(5, vo.getEbelnPo());
                 ps.setString(6, vo.getEbelpPo());
 
-                ps.setString(7, vo.getAtwrt00101());
-                ps.setString(8, vo.getAtwrt00102());
-                ps.setString(9, vo.getAtwrt00103());
-                ps.setString(10, vo.getAtwrt00104());
-                ps.setString(11, vo.getAtwrt00105());
-                ps.setString(12, vo.getAtwrt00106());
-                ps.setString(13, vo.getAtwrt00107());
-                ps.setString(14, vo.getAtwrt00108());
-                ps.setString(15, vo.getAtwrt00109());
+                if (type.equals("001")) { //변압기
+                    ps.setString(7, vo.getAtwrt00101());
+                    ps.setString(8, vo.getAtwrt00102());
+                    ps.setString(9, vo.getAtwrt00103());
+                    ps.setString(10, vo.getAtwrt00104());
+                    ps.setString(11, vo.getAtwrt00105());
+                    ps.setString(12, vo.getAtwrt00106());
+                    ps.setString(13, vo.getAtwrt00107());
+                    ps.setString(14, vo.getAtwrt00108());
+                    ps.setString(15, vo.getAtwrt00109());
+                }
 
-                ps.setString(16, vo.getAtwrt00101());
-                ps.setString(17, vo.getAtwrt00202());
-                ps.setString(18, vo.getAtwrt00203());
-                ps.setString(19, vo.getAtwrt00204());
-                ps.setString(20, vo.getAtwrt00205());
-                ps.setString(21, vo.getAtwrt00206());
-                ps.setFloat(22, vo.getAtwrt00207());
-                ps.setFloat(23, vo.getAtwrt00208());
-                ps.setFloat(24, vo.getAtwrt00209());
+                if (type.equals("002")) {  //개폐기
+                    ps.setString(7, vo.getAtwrt00101());
+                    ps.setString(8, vo.getAtwrt00202());
+                    ps.setString(9, vo.getAtwrt00203());
+                    ps.setString(10, vo.getAtwrt00204());
+                    ps.setString(11, vo.getAtwrt00205());
+                    ps.setString(12, vo.getAtwrt00206());
+                    ps.setFloat(13, vo.getAtwrt00207());
+                    ps.setFloat(14, vo.getAtwrt00208());
+                    ps.setFloat(15, vo.getAtwrt00209());
+                }
 
-                ps.setString(25, vo.getEbeln());  //where
-                ps.setString(26, vo.getLifnr());
-                ps.setString(27, vo.getLifnrGr());
-                ps.setString(28, vo.getEbelp());
-                ps.setString(29, vo.getMatsn());
+                ps.setString(16, vo.getEbeln());  //where
+                ps.setString(17, vo.getLifnr());
+                ps.setString(18, vo.getLifnrGr());
+                ps.setString(19, vo.getEbelp());
+                ps.setString(20, vo.getMatsn());
 
                 ps.executeUpdate();
             }
 
-        } catch (Exception e) {
+        } catch (SQLException e) {
             System.out.println("Save Error:" + e.getMessage());
             return false;
         } finally {
@@ -169,6 +183,12 @@ public class MproDetDAO {
         return true;
 
     }
+
+    private String getMproDetSaveSql(String type) {
+
+        return null;
+    }
+
 
 
 

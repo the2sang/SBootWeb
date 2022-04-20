@@ -265,31 +265,31 @@
           <input type="text" name="ebelpPo" size="14" maxlength="14" class="input-class" value="<%= vo.getEbelpPo()%>" >
         </td>
         <td style="text-align: center">
-          <input type="text" name="atwrt00101" size="3" maxlength="1" class="input-class" value=""<%= vo.getAtwrt00101()%>" >
+          <input type="text" name="atwrt00101" size="3" maxlength="1" class="input-class" value="<%= vo.getAtwrt00101()%>" >
         </td>
         <td style="text-align: center">
-          <input type="text" name="atwrt00102" size="3" maxlength="1" class="input-class" value=""<%= vo.getAtwrt00102()%>" >
+          <input type="text" name="atwrt00102" size="3" maxlength="1" class="input-class" value="<%= vo.getAtwrt00102()%>" >
         </td>
         <td style="text-align: center">
-          <input type="text" name="atwrt00103" size="3" maxlength="1" class="input-class" value=""<%= vo.getAtwrt00103()%>" >
+          <input type="text" name="atwrt00103" size="3" maxlength="1" class="input-class" value="<%= vo.getAtwrt00103()%>" >
         </td>
         <td style="text-align: center">
-          <input type="text" name="atwrt00104" size="3" maxlength="1" class="input-class" value=""<%= vo.getAtwrt00104()%>" >
+          <input type="text" name="atwrt00104" size="3" maxlength="1" class="input-class" value="<%= vo.getAtwrt00104()%>" >
         </td>
         <td style="text-align: center">
-          <input type="text" name="atwrt00105" size="3" maxlength="1" class="input-class" value=""<%= vo.getAtwrt00105()%>" >
+          <input type="text" name="atwrt00105" size="3" maxlength="1" class="input-class" value="<%= vo.getAtwrt00105()%>" >
         </td>
         <td style="text-align: center">
-          <input type="text" name="atwrt00106" size="3" maxlength="1" class="input-class" value=""<%= vo.getAtwrt00106()%>" >
+          <input type="text" name="atwrt00106" size="3" maxlength="1" class="input-class" value="<%= vo.getAtwrt00106()%>" >
         </td>
         <td style="text-align: center">
-          <input type="text" name="atwrt00107" size="3" maxlength="1" class="input-class" value=""<%= vo.getAtwrt00107()%>" >
+          <input type="text" name="atwrt00107" size="3" maxlength="1" class="input-class" value="<%= vo.getAtwrt00107()%>" >
         </td>
         <td style="text-align: center">
-          <input type="text" name="atwrt00108" size="3" maxlength="1" class="input-class" value=""<%= vo.getAtwrt00108()%>" >
+          <input type="text" name="atwrt00108" size="3" maxlength="1" class="input-class" value="<%= vo.getAtwrt00108()%>" >
         </td>
         <td style="text-align: center">
-          <input type="text" name="atwrt00109" size="3" maxlength="1" class="input-class" value=""<%= vo.getAtwrt00109()%>" >
+          <input type="text" name="atwrt00109" size="3" maxlength="1" class="input-class" value="<%= vo.getAtwrt00109()%>" >
         </td>
       </tr>
 <%

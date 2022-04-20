@@ -5,6 +5,7 @@ import com.kdn.sbootweb.dao.MproDetDAO;
 import com.kdn.sbootweb.dao.MproMstDAO;
 import com.kdn.sbootweb.vo.MproDetVO;
 import com.kdn.sbootweb.vo.MproMstVO;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -92,6 +93,12 @@ public class EDIController {
 
         MproMstVO mproMstVO = (MproMstVO)req.getSession().getAttribute("mproMstVO");
 
+        String inputType = null;
+        if (!StringUtils.isEmpty(mproMstVO.getAtwrtTp())) {
+            inputType = mproMstVO.getAtwrtTp();
+        }
+
+
 
         List<MproDetVO> saveList = new ArrayList<>();
         MproDetVO vo;
@@ -110,64 +117,148 @@ public class EDIController {
         String[] prnams = req.getParameterValues("prnam");
         String[] ebelnPos = req.getParameterValues("ebelnPo");
         String[] ebelpPos = req.getParameterValues("ebelpPo");
-        String[] atwrt00101s = req.getParameterValues("atwrt00101");
-        String[] atwrt00102s = req.getParameterValues("atwrt00102");
-        String[] atwrt00103s = req.getParameterValues("atwrt00103");
-        String[] atwrt00104s = req.getParameterValues("atwrt00104");
-        String[] atwrt00105s = req.getParameterValues("atwrt00105");
-        String[] atwrt00106s = req.getParameterValues("atwrt00106");
-        String[] atwrt00107s = req.getParameterValues("atwrt00107");
-        String[] atwrt00108s = req.getParameterValues("atwrt00108");
-        String[] atwrt00109s = req.getParameterValues("atwrt00109");
 
-        String[] atwrt00201s = req.getParameterValues("atwrt00201");
-        String[] atwrt00202s = req.getParameterValues("atwrt00202");
-        String[] atwrt00203s = req.getParameterValues("atwrt00203");
-        String[] atwrt00204s = req.getParameterValues("atwrt00204");
-        String[] atwrt00205s = req.getParameterValues("atwrt00205");
-        String[] atwrt00206s = req.getParameterValues("atwrt00206");
-        String[] atwrt00207s = req.getParameterValues("atwrt00207");
-        String[] atwrt00208s = req.getParameterValues("atwrt00208");
-        String[] atwrt00209s = req.getParameterValues("atwrt00209");
+        String[] atwrt00101s = new String[ebelns.length];
+        String[] atwrt00102s= new String[ebelns.length];
+        String[] atwrt00103s= new String[ebelns.length];
+        String[] atwrt00104s= new String[ebelns.length];
+        String[] atwrt00105s= new String[ebelns.length];
+        String[] atwrt00106s= new String[ebelns.length];
+        String[] atwrt00107s= new String[ebelns.length];
+        String[] atwrt00108s= new String[ebelns.length];
+        String[] atwrt00109s= new String[ebelns.length];
+        if (!StringUtils.isEmpty(inputType) && inputType.equals("001")) {  //변압기인 경우
+             atwrt00101s = req.getParameterValues("atwrt00101");
+             atwrt00102s = req.getParameterValues("atwrt00102");
+             atwrt00103s = req.getParameterValues("atwrt00103");
+             atwrt00104s = req.getParameterValues("atwrt00104");
+             atwrt00105s = req.getParameterValues("atwrt00105");
+             atwrt00106s = req.getParameterValues("atwrt00106");
+             atwrt00107s = req.getParameterValues("atwrt00107");
+             atwrt00108s = req.getParameterValues("atwrt00108");
+             atwrt00109s = req.getParameterValues("atwrt00109");
+        }
 
-        for (int i=0; i < ebelns.length; i++) {
+        String[] atwrt00201s= new String[ebelns.length];
+        String[] atwrt00202s= new String[ebelns.length];
+        String[] atwrt00203s= new String[ebelns.length];
+        String[] atwrt00204s= new String[ebelns.length];
+        String[] atwrt00205s= new String[ebelns.length];
+        String[] atwrt00206s= new String[ebelns.length];
+        String[] atwrt00207s= new String[ebelns.length];
+        String[] atwrt00208s= new String[ebelns.length];
+        String[] atwrt00209s= new String[ebelns.length];
+        if (!StringUtils.isEmpty(inputType) && inputType.equals("002")) { //개폐기인 경우
+             atwrt00201s = req.getParameterValues("atwrt00201");
+             atwrt00202s = req.getParameterValues("atwrt00202");
+             atwrt00203s = req.getParameterValues("atwrt00203");
+             atwrt00204s = req.getParameterValues("atwrt00204");
+             atwrt00205s = req.getParameterValues("atwrt00205");
+             atwrt00206s = req.getParameterValues("atwrt00206");
+             atwrt00207s = req.getParameterValues("atwrt00207");
+             atwrt00208s = req.getParameterValues("atwrt00208");
+             atwrt00209s = req.getParameterValues("atwrt00209");
+        }
+
+
+
+        for (int i=0; i < ebelns.length; i++) { //리스트 목록 갯수 판단
             vo = new MproDetVO();
             vo.setEbeln(ebelns[i]);
             vo.setLifnr(lifnrs[i]);
             vo.setLifnrGr(lifnrGrs[i]);
             vo.setEbelp(ebelps[i]); //where
 
-            vo.setPrdft(prdfts[i]);
-            vo.setPrdsn(prdsns[i]);
-            vo.setPrddt(prddts[i]);
-            vo.setPrnam(prnams[i]);
-            vo.setEbelnPo(ebelnPos[i]);
-            vo.setEbelpPo(ebelpPos[i]);
+            if (prdfts[i] != null && !prdfts.equals("")) {
+                vo.setPrdft(prdfts[i]);
+            }
 
-            vo.setAtwrt00101(atwrt00101s[i]);
-            vo.setAtwrt00102(atwrt00102s[i]);
-            vo.setAtwrt00103(atwrt00103s[i]);
-            vo.setAtwrt00104(atwrt00104s[i]);
-            vo.setAtwrt00105(atwrt00105s[i]);
-            vo.setAtwrt00106(atwrt00106s[i]);
-            vo.setAtwrt00107(atwrt00107s[i]);
-            vo.setAtwrt00108(atwrt00108s[i]);
-            vo.setAtwrt00109(atwrt00109s[i]);
+            if (!StringUtils.isEmpty(prdsns[i])) {
+                vo.setPrdsn(prdsns[i]);
+            }
 
-            vo.setAtwrt00201(atwrt00201s[i]);
-            vo.setAtwrt00202(atwrt00202s[i]);
-            vo.setAtwrt00203(atwrt00203s[i]);
-            vo.setAtwrt00204(atwrt00204s[i]);
-            vo.setAtwrt00205(atwrt00205s[i]);
-            vo.setAtwrt00206(atwrt00206s[i]);
-            vo.setAtwrt00207(new Float(atwrt00207s[i]).floatValue());
-            vo.setAtwrt00208(new Float(atwrt00208s[i]).floatValue());
-            vo.setAtwrt00209(new Float(atwrt00209s[i]).floatValue());
+            if (!StringUtils.isEmpty(prddts[i])) {
+                vo.setPrddt(prddts[i]);
+            }
+
+            if (!StringUtils.isEmpty(prnams[i])) {
+                vo.setPrnam(prnams[i]);
+            }
+
+            if (!StringUtils.isEmpty(ebelnPos[i])) {
+                vo.setEbelnPo(ebelnPos[i]);
+            }
+
+            if (!StringUtils.isEmpty(ebelpPos[i])) {
+                vo.setEbelpPo(ebelpPos[i]);
+            }
+
+
+            if (!StringUtils.isEmpty(inputType) && inputType.equals("001")) {  //변압기인 경우
+                if (!StringUtils.isEmpty(atwrt00101s[i])) {
+                    vo.setAtwrt00101(atwrt00101s[i]);
+                }
+                if (!StringUtils.isEmpty(atwrt00102s[i])) {
+                    vo.setAtwrt00102(atwrt00102s[i]);
+                }
+                if (!StringUtils.isEmpty(atwrt00103s[i])) {
+                    vo.setAtwrt00103(atwrt00103s[i]);
+                }
+                if (!StringUtils.isEmpty(atwrt00104s[i])) {
+                    vo.setAtwrt00104(atwrt00104s[i]);
+                }
+                if (!StringUtils.isEmpty(atwrt00105s[i])) {
+                    vo.setAtwrt00105(atwrt00105s[i]);
+                }
+                if (!StringUtils.isEmpty(atwrt00106s[i])) {
+                    vo.setAtwrt00106(atwrt00106s[i]);
+                }
+                if (!StringUtils.isEmpty(atwrt00107s[i])) {
+                    vo.setAtwrt00107(atwrt00107s[i]);
+                }
+                if (!StringUtils.isEmpty(atwrt00108s[i])) {
+                    vo.setAtwrt00108(atwrt00108s[i]);
+                }
+                if (!StringUtils.isEmpty(atwrt00109s[i])) {
+                    vo.setAtwrt00109(atwrt00109s[i]);
+                }
+
+            }
+
+            if (!StringUtils.isEmpty(inputType) && inputType.equals("002")) { //개폐기인 경우
+                if (!StringUtils.isEmpty(atwrt00201s[i])) {
+                    vo.setAtwrt00201(atwrt00201s[i]);
+                }
+                if (!StringUtils.isEmpty(atwrt00202s[i])) {
+                    vo.setAtwrt00202(atwrt00202s[i]);
+                }
+                if (!StringUtils.isEmpty(atwrt00203s[i])) {
+                    vo.setAtwrt00203(atwrt00203s[i]);
+                }
+                if (!StringUtils.isEmpty(atwrt00204s[i])) {
+                    vo.setAtwrt00204(atwrt00204s[i]);
+                }
+                if (!StringUtils.isEmpty(atwrt00205s[i])) {
+                    vo.setAtwrt00205(atwrt00205s[i]);
+                }
+                if (!StringUtils.isEmpty(atwrt00206s[i])) {
+                    vo.setAtwrt00206(atwrt00206s[i]);
+                }
+                if (!StringUtils.isEmpty(atwrt00207s[i])) {
+                    vo.setAtwrt00207(new Float(atwrt00207s[i]).floatValue());
+                }
+                if (!StringUtils.isEmpty(atwrt00208s[i])) {
+                    vo.setAtwrt00208(new Float(atwrt00208s[i]).floatValue());
+                }
+                if (!StringUtils.isEmpty(atwrt00209s[i])) {
+                    vo.setAtwrt00209(new Float(atwrt00209s[i]).floatValue());
+                }
+            }
 
             saveList.add(vo);
         }
 
-        boolean updateResult = MproDetDAO.saveMproDetList(ds, saveList);
+        boolean updateResult = MproDetDAO.saveMproDetList(ds, saveList, inputType);
 
 
         ModelAndView mv = new ModelAndView();
@@ -177,6 +268,7 @@ public class EDIController {
         mv.setViewName("input_trans");
 
         req.getSession().setAttribute("updateResult", updateResult);
+
 
         return mv;
     }

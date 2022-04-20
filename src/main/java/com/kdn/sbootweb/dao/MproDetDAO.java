@@ -44,12 +44,14 @@ public class MproDetDAO {
                 mproDetVO.setLifnrGr(rs.getString("LIFNR_GR"));
                 mproDetVO.setEbelp(rs.getString("EBELP"));
                 mproDetVO.setMatsn(rs.getString("MATSN"));
-                mproDetVO.setWerks(rs.getString("WERKS"));
-                mproDetVO.setEindt(rs.getString("EINDT"));
                 mproDetVO.setPrdft(rs.getString("PRDFT"));
                 mproDetVO.setPrdsn(rs.getString("PRDSN"));
-                mproDetVO.setPrddt(rs.getString("PRDDT"));
-                mproDetVO.setPrnam(rs.getString("PRNAM"));
+                mproDetVO.setPrddt(rs.getString("PRDFT")); //생산공장
+                mproDetVO.setPrdsn(rs.getString("PRDSN")); //제작번호
+                mproDetVO.setPrddt(rs.getString("PRDDT"));  //제작일자
+                mproDetVO.setPrnam(rs.getString("PRNAM")); // 제작 담당자 이름
+                mproDetVO.setEbelnPo(rs.getString("EBELN_PO")); //인도지시서번호 (0419)
+                mproDetVO.setEbelpPo(rs.getString("EBELP_PO"));
                 mproDetVO.setAtwrt00101(rs.getString("ATWRT_001_01"));
                 mproDetVO.setAtwrt00102(rs.getString("ATWRT_001_02"));
                 mproDetVO.setAtwrt00103(rs.getString("ATWRT_001_03"));
@@ -58,6 +60,7 @@ public class MproDetDAO {
                 mproDetVO.setAtwrt00106(rs.getString("ATWRT_001_06"));
                 mproDetVO.setAtwrt00107(rs.getString("ATWRT_001_07"));
                 mproDetVO.setAtwrt00108(rs.getString("ATWRT_001_08"));
+                mproDetVO.setAtwrt00109(rs.getString("ATWRT_001_09"));
                 mproDetVO.setAtwrt00201(rs.getString("ATWRT_002_01"));
                 mproDetVO.setAtwrt00202(rs.getString("ATWRT_002_02"));
                 mproDetVO.setAtwrt00203(rs.getString("ATWRT_002_03"));
@@ -102,26 +105,50 @@ public class MproDetDAO {
 
             conn = ds.getConnection();
 
-            String sql = "UPDATE XMLEDI_MPRO_DET SET WERKS =  ?,  EINDT = ?, PRDFT = ?, PRDSN= ?, PRDDT = ?, PRNAM = ? " +
-                    " WHERE EBELN = ? AND LIFNR = ? AND LIFNR_GR = ? AND EBELP = ? AND MATSN = ?";
+            String sql = "UPDATE XMLEDI_MPRO_DET SET PRDFT = ?, PRDSN= ?, PRDDT = ?, PRNAM = ? " + //1,2,3,4
+                    " EBELN_PO = ? EBELP_PO = ? ATWRT_001_01 = ?  ATWRT_001_02 = ?  ATWRT_001_03 = ? " + //5,6,7,8,9
+                    "  ATWRT_001_04 = ?  ATWRT_001_05 = ?  ATWRT_001_06 = ?  ATWRT_001_07 = ? " + //10,11,12,13
+                    "  ATWRT_001_08 = ?  ATWRT_001_09 = ?  ATWRT_002_01 = ?  ATWRT_002_02 = ? " + //14,15,16,17
+                    "  ATWRT_002_03 = ?  ATWRT_002_04 = ?  ATWRT_002_05 = ?  ATWRT_002_06 = ? " + //18,19,20,21
+                    "  ATWRT_002_07 = ?  ATWRT_002_08 = ?  ATWRT_002_09 = ? " + //22,23,24
+                    " WHERE EBELN = ? AND LIFNR = ? AND LIFNR_GR = ? AND EBELP = ? AND MATSN = ?"; //25,26,27, 28, 29
 
             ps = conn.prepareStatement(sql);
 
             for (MproDetVO vo:listMproDet) {
                 //update
-                ps.setString(1, vo.getWerks());
-                ps.setString(2,vo.getEindt());
-                ps.setString(3, vo.getPrdft());
-                ps.setString(4, vo.getPrdsn());
-                ps.setString(5, vo.getPrddt());
-                ps.setString(6, vo.getPrnam());
+                ps.setString(1, vo.getPrdft());
+                ps.setString(2, vo.getPrdsn());
+                ps.setString(3, vo.getPrddt());
+                ps.setString(4, vo.getPrnam());
+                ps.setString(5, vo.getEbelnPo());
+                ps.setString(6, vo.getEbelpPo());
 
-                //where
-                ps.setString(7, vo.getEbeln());
-                ps.setString(8, vo.getLifnr());
-                ps.setString(9, vo.getLifnrGr());
-                ps.setString(10, vo.getEbelp());
-                ps.setString(11, vo.getMatsn());
+                ps.setString(7, vo.getAtwrt00101());
+                ps.setString(8, vo.getAtwrt00102());
+                ps.setString(9, vo.getAtwrt00103());
+                ps.setString(10, vo.getAtwrt00104());
+                ps.setString(11, vo.getAtwrt00105());
+                ps.setString(12, vo.getAtwrt00106());
+                ps.setString(13, vo.getAtwrt00107());
+                ps.setString(14, vo.getAtwrt00108());
+                ps.setString(15, vo.getAtwrt00109());
+
+                ps.setString(16, vo.getAtwrt00101());
+                ps.setString(17, vo.getAtwrt00202());
+                ps.setString(18, vo.getAtwrt00203());
+                ps.setString(19, vo.getAtwrt00204());
+                ps.setString(20, vo.getAtwrt00205());
+                ps.setString(21, vo.getAtwrt00206());
+                ps.setString(22, vo.getAtwrt00207());
+                ps.setString(23, vo.getAtwrt00208());
+                ps.setString(24, vo.getAtwrt00209());
+
+                ps.setString(25, vo.getEbeln());  //where
+                ps.setString(26, vo.getLifnr());
+                ps.setString(27, vo.getLifnrGr());
+                ps.setString(28, vo.getEbelp());
+                ps.setString(29, vo.getMatsn());
 
                 ps.executeUpdate();
             }

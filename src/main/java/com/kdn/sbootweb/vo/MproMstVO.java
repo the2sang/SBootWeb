@@ -6,56 +6,34 @@ public class MproMstVO {
     private String lifnr;       //2계약업체 사업자번호
     private String lifnrGr;     //3납품업체 사업자번호
     private String ebelp;       //4품목번호
-    private String matnr;       //5자재번호
-    private String txz01;       //6자재명
-    private String menge;       //7주문수량
-    private String netpr;       //8단가
-    private String netwr;       //9금액
-    private String zbpmng;      //10납품수량
-    private String meins;       //11단위
-    private String waers;       //12통화
-    private String matsnFr;     //13고유인식번호 시작
-    private String matsnTo;     //14고유인식번호 종료
-    private long matsnCnt;    //15고유인식번호 발급 개수
-    private String atwrtTp;     //16자재 특성유형 (001:변압기, 002: 개폐기)
-    private String senddt;      //17개별자재 생산내역서 송신일자
-    private String sendtm;      //18개별자재 생산내역서 송신시간
-    private String recvdt;      //19개별자재 생산내역서 수신일자
-    private String recvtm;      //20개별자재 생산내역서 수신시간
-    private String recvst;      //21개별자재 생산내역서 수신결과
-    private String recvmg;      //22개별자재 생산내역서 수신오류 메세지
-    private String inputSt;     //23EDI 입력 상태정보
+    private String ebdat;       //5 주문일자 - 추가
+    private String eindt;       //6 납기일자 - 추가
+    private String lifnrNm;    //7 계약업체명 -- 추가
+    private String lifnrGrnm;  //8 납품업체명  -- 추가
+    private String werks;       //9 입고사업소(4)  -- 추가
+    private String name1;       //10 입고사업소명 --추가
+    private String matnr;       //11자재번호
+    private String txz01;       //12자재명
+    private String menge;       //13주문수량
+    private String netpr;       //14단가
+    private String netwr;       //15금액
+    private String zbpmng;      //16납품수량
+    private String meins;       //17단위
+    private String waers;       //18통화
+    private String prueflog;    //19
+    private String matsnFr;     //20고유인식번호 시작
+    private String matsnTo;     //21고유인식번호 종료
+    private long matsnCnt;    //22고유인식번호 발급 개수
+    private String atwrtTp;     //23자재 특성유형 (001:변압기, 002: 개폐기)
+    private String senddt;      //24개별자재 생산내역서 송신일자
+    private String sendtm;      //25개별자재 생산내역서 송신시간
+    private String recvdt;      //26개별자재 생산내역서 수신일자
+    private String recvtm;      //27개별자재 생산내역서 수신시간
+    private String recvst;      //28개별자재 생산내역서 수신결과
+    private String recvmg;      //29개별자재 생산내역서 수신오류 메세지
+    private String inputSt;     //30EDI 입력 상태정보
 
     public MproMstVO() {
-    }
-
-    public MproMstVO(String ebeln, String lifnr, String lifnrGr, String ebelp, String matnr, String txz01,
-                     String menge, String netpr, String netwr, String zbpmng, String meins, String waers,
-                     String matsnFr, String matsnTo, long matsnCnt, String atwrtTp, String senddt, String sendtm,
-                     String recvdt, String recvtm, String recvst, String recvmg, String inputSt) {
-        this.ebeln = ebeln;
-        this.lifnr = lifnr;
-        this.lifnrGr = lifnrGr;
-        this.ebelp = ebelp;
-        this.matnr = matnr;
-        this.txz01 = txz01;
-        this.menge = menge;
-        this.netpr = netpr;
-        this.netwr = netwr;
-        this.zbpmng = zbpmng;
-        this.meins = meins;
-        this.waers = waers;
-        this.matsnFr = matsnFr;
-        this.matsnTo = matsnTo;
-        this.matsnCnt = matsnCnt;
-        this.atwrtTp = atwrtTp;
-        this.senddt = senddt;
-        this.sendtm = sendtm;
-        this.recvdt = recvdt;
-        this.recvtm = recvtm;
-        this.recvst = recvst;
-        this.recvmg = recvmg;
-        this.inputSt = inputSt;
     }
 
     public String getEbeln() {
@@ -88,6 +66,54 @@ public class MproMstVO {
 
     public void setEbelp(String ebelp) {
         this.ebelp = ebelp;
+    }
+
+    public String getEbdat() {
+        return ebdat;
+    }
+
+    public void setEbdat(String ebdat) {
+        this.ebdat = ebdat;
+    }
+
+    public String getEindt() {
+        return eindt;
+    }
+
+    public void setEindt(String eindt) {
+        this.eindt = eindt;
+    }
+
+    public String getLifnrNm() {
+        return lifnrNm;
+    }
+
+    public void setLifnrNm(String lifnrNm) {
+        this.lifnrNm = lifnrNm;
+    }
+
+    public String getLifnrGrnm() {
+        return lifnrGrnm;
+    }
+
+    public void setLifnrGrnm(String lifnrGrnm) {
+        this.lifnrGrnm = lifnrGrnm;
+    }
+
+    public String getWerks() {
+        return werks;
+    }
+
+    public void setWerks(String werks) {
+        this.werks = werks;
+    }
+
+    public String getName1() {
+        return name1;
+    }
+
+    public void setName1(String name1) {
+        this.name1 = name1;
     }
 
     public String getMatnr() {
@@ -152,6 +178,14 @@ public class MproMstVO {
 
     public void setWaers(String waers) {
         this.waers = waers;
+    }
+
+    public String getPrueflog() {
+        return prueflog;
+    }
+
+    public void setPrueflog(String prueflog) {
+        this.prueflog = prueflog;
     }
 
     public String getMatsnFr() {
@@ -249,6 +283,12 @@ public class MproMstVO {
                 ", lifnr='" + lifnr + '\'' +
                 ", lifnrGr='" + lifnrGr + '\'' +
                 ", ebelp='" + ebelp + '\'' +
+                ", ebdat='" + ebdat + '\'' +
+                ", eindt='" + eindt + '\'' +
+                ", lifnrNm='" + lifnrNm + '\'' +
+                ", lifnrGrnm='" + lifnrGrnm + '\'' +
+                ", werks='" + werks + '\'' +
+                ", name1='" + name1 + '\'' +
                 ", matnr='" + matnr + '\'' +
                 ", txz01='" + txz01 + '\'' +
                 ", menge='" + menge + '\'' +
@@ -257,6 +297,7 @@ public class MproMstVO {
                 ", zbpmng='" + zbpmng + '\'' +
                 ", meins='" + meins + '\'' +
                 ", waers='" + waers + '\'' +
+                ", prueflog='" + prueflog + '\'' +
                 ", matsnFr='" + matsnFr + '\'' +
                 ", matsnTo='" + matsnTo + '\'' +
                 ", matsnCnt=" + matsnCnt +

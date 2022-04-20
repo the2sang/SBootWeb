@@ -7,12 +7,12 @@ public class MproDetVO {
     private String lifnrGr;     //3.납품업체
     private String ebelp;       //4.품목번호
     private String matsn;       //5.고유인식번호
-    private String werks;       //6.플랜트(본부)
-    private String eindt;       //7.납기일자
-    private String prdft;       //8.생산공장
-    private String prdsn;       //9.제작번호
-    private String prddt;       //10.제작일자
-    private String prnam;       //11.제작담당자 이름
+    private String prdft;       //6.생산공장
+    private String prdsn;       //7.제작번호
+    private String prddt;       //8.제작일자
+    private String prnam;       //9.제작담당자 이름
+    private String ebelnPo;     //10. 인도지시서번호 (0419 추가)  ---------
+    private String ebelpPo;     //11. 인도지시서품목번호 (0419 추가)  ----------
     private String atwrt00101;  //12.변압기 1차 부싱타입
     private String atwrt00102;  //13.변압기 2차 부싱타입
     private String atwrt00103;  //14.변압기 권선종류
@@ -21,57 +21,20 @@ public class MproDetVO {
     private String atwrt00106;  //17.변압기 유량
     private String atwrt00107;  //18.변압기 무부하손
     private String atwrt00108;  //19.변압기 부하손
-    private String atwrt00201;  //20.개폐기 정격전류
-    private String atwrt00202;  //21.개폐기 스위칭매체
-    private String atwrt00203;  //22. 개폐기 절연매체
-    private String atwrt00204;  //23.개폐기 매커니즘 조작방식
-    private String atwrt00205;  //24.개폐기 1차 부싱타입
-    private String atwrt00206;  //25.개폐기 2차 부싱타입
-    private String atwrt00207;  //26.개폐기 정격가스압력
-    private String atwrt00208;  //27.개폐기 최저보증가시압력
-    private String atwrt00209;  //28.개폐기 가스량
-    private String recvst;      //29.개별자재 생산내역서 내용 점검 결과 (S:성공, E:실패)
-    private String recvmg;      //30.개별자재 생산내역서 내용 점검 결과 (오류 메세지 기록)
+    private String atwrt00109;  //20.변압기 절연지 종류   (0419 추가)  ----------
+    private String atwrt00201;  //21.개폐기 정격전류
+    private String atwrt00202;  //22.개폐기 스위칭매체
+    private String atwrt00203;  //23. 개폐기 절연매체
+    private String atwrt00204;  //24.개폐기 매커니즘 조작방식
+    private String atwrt00205;  //25.개폐기 1차 부싱타입
+    private String atwrt00206;  //26.개폐기 2차 부싱타입
+    private String atwrt00207;  //27.개폐기 정격가스압력
+    private String atwrt00208;  //28.개폐기 최저보증가시압력
+    private String atwrt00209;  //29.개폐기 가스량
+    private String recvst;      //30.개별자재 생산내역서 내용 점검 결과 (S:성공, E:실패)
+    private String recvmg;      //31.개별자재 생산내역서 내용 점검 결과 (오류 메세지 기록)
 
     public MproDetVO() {
-    }
-
-    public MproDetVO(String ebeln, String lifnr, String lifnrGr, String ebelp, String matsn, String werks,
-                     String eindt, String prdft, String prdsn, String prddt, String prnam, String atwrt00101,
-                     String atwrt00102, String atwrt00103, String atwrt00104, String atwrt00105, String atwrt00106,
-                     String atwrt00107, String atwrt00108, String atwrt00201, String atwrt00202, String atwrt00203,
-                     String atwrt00204, String atwrt00205, String atwrt00206, String atwrt00207, String atwrt00208,
-                     String atwrt00209, String recvst, String recvmg) {
-        this.ebeln = ebeln;
-        this.lifnr = lifnr;
-        this.lifnrGr = lifnrGr;
-        this.ebelp = ebelp;
-        this.matsn = matsn;
-        this.werks = werks;
-        this.eindt = eindt;
-        this.prdft = prdft;
-        this.prdsn = prdsn;
-        this.prddt = prddt;
-        this.prnam = prnam;
-        this.atwrt00101 = atwrt00101;
-        this.atwrt00102 = atwrt00102;
-        this.atwrt00103 = atwrt00103;
-        this.atwrt00104 = atwrt00104;
-        this.atwrt00105 = atwrt00105;
-        this.atwrt00106 = atwrt00106;
-        this.atwrt00107 = atwrt00107;
-        this.atwrt00108 = atwrt00108;
-        this.atwrt00201 = atwrt00201;
-        this.atwrt00202 = atwrt00202;
-        this.atwrt00203 = atwrt00203;
-        this.atwrt00204 = atwrt00204;
-        this.atwrt00205 = atwrt00205;
-        this.atwrt00206 = atwrt00206;
-        this.atwrt00207 = atwrt00207;
-        this.atwrt00208 = atwrt00208;
-        this.atwrt00209 = atwrt00209;
-        this.recvst = recvst;
-        this.recvmg = recvmg;
     }
 
     public String getEbeln() {
@@ -114,22 +77,6 @@ public class MproDetVO {
         this.matsn = matsn;
     }
 
-    public String getWerks() {
-        return werks;
-    }
-
-    public void setWerks(String werks) {
-        this.werks = werks;
-    }
-
-    public String getEindt() {
-        return eindt;
-    }
-
-    public void setEindt(String eindt) {
-        this.eindt = eindt;
-    }
-
     public String getPrdft() {
         return prdft;
     }
@@ -160,6 +107,22 @@ public class MproDetVO {
 
     public void setPrnam(String prnam) {
         this.prnam = prnam;
+    }
+
+    public String getEbelnPo() {
+        return ebelnPo;
+    }
+
+    public void setEbelnPo(String ebelnPo) {
+        this.ebelnPo = ebelnPo;
+    }
+
+    public String getEbelpPo() {
+        return ebelpPo;
+    }
+
+    public void setEbelpPo(String ebelpPo) {
+        this.ebelpPo = ebelpPo;
     }
 
     public String getAtwrt00101() {
@@ -224,6 +187,14 @@ public class MproDetVO {
 
     public void setAtwrt00108(String atwrt00108) {
         this.atwrt00108 = atwrt00108;
+    }
+
+    public String getAtwrt00109() {
+        return atwrt00109;
+    }
+
+    public void setAtwrt00109(String atwrt00109) {
+        this.atwrt00109 = atwrt00109;
     }
 
     public String getAtwrt00201() {
@@ -322,12 +293,12 @@ public class MproDetVO {
                 ", lifnrGr='" + lifnrGr + '\'' +
                 ", ebelp='" + ebelp + '\'' +
                 ", matsn='" + matsn + '\'' +
-                ", werks='" + werks + '\'' +
-                ", eindt='" + eindt + '\'' +
                 ", prdft='" + prdft + '\'' +
                 ", prdsn='" + prdsn + '\'' +
                 ", prddt='" + prddt + '\'' +
                 ", prnam='" + prnam + '\'' +
+                ", ebelnPo='" + ebelnPo + '\'' +
+                ", ebelpPo='" + ebelpPo + '\'' +
                 ", atwrt00101='" + atwrt00101 + '\'' +
                 ", atwrt00102='" + atwrt00102 + '\'' +
                 ", atwrt00103='" + atwrt00103 + '\'' +
@@ -336,6 +307,7 @@ public class MproDetVO {
                 ", atwrt00106='" + atwrt00106 + '\'' +
                 ", atwrt00107='" + atwrt00107 + '\'' +
                 ", atwrt00108='" + atwrt00108 + '\'' +
+                ", atwrt00109='" + atwrt00109 + '\'' +
                 ", atwrt00201='" + atwrt00201 + '\'' +
                 ", atwrt00202='" + atwrt00202 + '\'' +
                 ", atwrt00203='" + atwrt00203 + '\'' +

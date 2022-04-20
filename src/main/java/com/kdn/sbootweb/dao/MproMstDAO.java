@@ -37,6 +37,11 @@ public class MproMstDAO {
                 mproMstVO.setLifnr(rs.getString("LIFNR"));
                 mproMstVO.setLifnrGr(rs.getString("LIFNR_GR"));
                 mproMstVO.setEbelp(rs.getString("EBELP"));
+                mproMstVO.setEbdat(rs.getString("EBDAT")); //
+                mproMstVO.setLifnrNm(rs.getString("LIFNR_NM")); //
+                mproMstVO.setLifnrGrnm(rs.getString("LIFNR_GRNM")); //
+                mproMstVO.setWerks(rs.getString("WERKS")); //
+                mproMstVO.setName1(rs.getString("NAME1")); //
                 mproMstVO.setMatnr(rs.getString("MATNR"));
                 mproMstVO.setTxz01(rs.getString("TXZ01"));
                 mproMstVO.setMenge(rs.getString("MENGE"));
@@ -45,9 +50,12 @@ public class MproMstDAO {
                 mproMstVO.setZbpmng(rs.getString("ZBPMNG"));
                 mproMstVO.setMeins(rs.getString("MEINS"));
                 mproMstVO.setWaers(rs.getString("WAERS"));
+                mproMstVO.setPrueflog(rs.getString("FRUEFLOG")); //
                 mproMstVO.setMatsnFr(rs.getString("MATSN_FR"));
                 mproMstVO.setMatsnTo(rs.getString("MATSN_TO"));
-                mproMstVO.setMatsnCnt(rs.getLong("MATSN_CNT")); //15
+                mproMstVO.setMatsnCnt(rs.getLong("MATSN_CNT")); //
+                mproMstVO.setAtwrtTp(rs.getString("ATWRT_TP"));
+                mproMstVO.setInputSt(rs.getString("INPUT_ST"));
             }
         } catch (SQLException sqle) {
             sqle.printStackTrace();
@@ -103,7 +111,5 @@ public class MproMstDAO {
         }
         return checkUpdate;
     }
-
-
 
 }

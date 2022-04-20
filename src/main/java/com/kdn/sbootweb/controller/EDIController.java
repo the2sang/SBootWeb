@@ -104,26 +104,66 @@ public class EDIController {
         String[] ebelps = req.getParameterValues("ebelp");
         String[] matsns = req.getParameterValues("matsn");
 
-        String[] werkss = req.getParameterValues("werks");
-        String[] eindts = req.getParameterValues("eindt");
         String[] prdfts = req.getParameterValues("prdft");
         String[] prdsns = req.getParameterValues("prdsn");
         String[] prddts = req.getParameterValues("prddt");
         String[] prnams = req.getParameterValues("prnam");
+        String[] ebelnPos = req.getParameterValues("ebelnPo");
+        String[] ebelpPos = req.getParameterValues("ebelpPo");
+        String[] atwrt00101s = req.getParameterValues("atwrt00101");
+        String[] atwrt00102s = req.getParameterValues("atwrt00102");
+        String[] atwrt00103s = req.getParameterValues("atwrt00103");
+        String[] atwrt00104s = req.getParameterValues("atwrt00104");
+        String[] atwrt00105s = req.getParameterValues("atwrt00105");
+        String[] atwrt00106s = req.getParameterValues("atwrt00106");
+        String[] atwrt00107s = req.getParameterValues("atwrt00107");
+        String[] atwrt00108s = req.getParameterValues("atwrt00108");
+        String[] atwrt00109s = req.getParameterValues("atwrt00109");
+
+        String[] atwrt00201s = req.getParameterValues("atwrt00201");
+        String[] atwrt00202s = req.getParameterValues("atwrt00202");
+        String[] atwrt00203s = req.getParameterValues("atwrt00203");
+        String[] atwrt00204s = req.getParameterValues("atwrt00204");
+        String[] atwrt00205s = req.getParameterValues("atwrt00205");
+        String[] atwrt00206s = req.getParameterValues("atwrt00206");
+        String[] atwrt00207s = req.getParameterValues("atwrt00207");
+        String[] atwrt00208s = req.getParameterValues("atwrt00208");
+        String[] atwrt00209s = req.getParameterValues("atwrt00209");
 
         for (int i=0; i < ebelns.length; i++) {
             vo = new MproDetVO();
             vo.setEbeln(ebelns[i]);
             vo.setLifnr(lifnrs[i]);
             vo.setLifnrGr(lifnrGrs[i]);
-            vo.setEbelp(ebelps[i]);
-            vo.setMatsn(matsns[i]);
-            vo.setWerks(werkss[i]);
-            vo.setEindt(eindts[i]);
+            vo.setEbelp(ebelps[i]); //where
+
             vo.setPrdft(prdfts[i]);
             vo.setPrdsn(prdsns[i]);
             vo.setPrddt(prddts[i]);
             vo.setPrnam(prnams[i]);
+            vo.setEbelnPo(ebelnPos[i]);
+            vo.setEbelpPo(ebelpPos[i]);
+
+            vo.setAtwrt00101(atwrt00101s[i]);
+            vo.setAtwrt00102(atwrt00102s[i]);
+            vo.setAtwrt00103(atwrt00103s[i]);
+            vo.setAtwrt00104(atwrt00104s[i]);
+            vo.setAtwrt00105(atwrt00105s[i]);
+            vo.setAtwrt00106(atwrt00106s[i]);
+            vo.setAtwrt00107(atwrt00107s[i]);
+            vo.setAtwrt00108(atwrt00108s[i]);
+            vo.setAtwrt00109(atwrt00109s[i]);
+
+            vo.setAtwrt00201(atwrt00201s[i]);
+            vo.setAtwrt00202(atwrt00202s[i]);
+            vo.setAtwrt00203(atwrt00203s[i]);
+            vo.setAtwrt00204(atwrt00204s[i]);
+            vo.setAtwrt00205(atwrt00205s[i]);
+            vo.setAtwrt00206(atwrt00206s[i]);
+            vo.setAtwrt00207(atwrt00207s[i]);
+            vo.setAtwrt00208(atwrt00208s[i]);
+            vo.setAtwrt00209(atwrt00209s[i]);
+
 
             saveList.add(vo);
         }

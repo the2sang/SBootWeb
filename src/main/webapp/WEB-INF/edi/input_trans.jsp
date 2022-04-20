@@ -230,6 +230,8 @@
       </tr>
       <%
         for (MproDetVO vo : detailList) {
+
+
       %>
       <tr>
         <input type="hidden" name="ebeln" value="<%= vo.getEbeln()%>" >
@@ -237,10 +239,6 @@
         <input type="hidden" name="lifnrGr" value="<%= vo.getLifnrGr()%>" >
         <input type="hidden" name="ebelp" value="<%= vo.getEbelp()%>" >
         <input type="hidden" name="matsn" value="<%= vo.getMatsn()%>" >
-        <input type="hidden" name="werks" value="<%= vo.getWerks()%>" >
-        <input type="hidden" name="eindt" value="<%= vo.getEindt()%>" >
-        <input type="hidden" name="prdft" value="<%= vo.getPrdft()%>" >
-        <input type="hidden" name="prnam" value="<%= vo.getPrnam()%>" >
 
         <td style="text-align: center; background-color: #f0f0f0" ><%= vo.getMatsn() %></td>
         <td style="text-align: center; background-color: #f0f0f0">10000646998</td>
@@ -251,7 +249,7 @@
           <input type="text" name="prddt" size="8" class="input-class" value="<%= vo.getPrddt() %>" >
         </td>
         <td style="text-align: center">
-          <input type="text" name="" size="12" class="input-class" value="제조사"  >
+          <input type="text" name="prdft" size="12" class="input-class" value="<%= vo.getPrdft()%>>"  >
         </td>
         <td style="text-align: center">
           <input type="text" name="" size="10" class="input-class" value="부산공장" >

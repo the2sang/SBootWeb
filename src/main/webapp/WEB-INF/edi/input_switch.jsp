@@ -200,8 +200,6 @@
     <input type="hidden" name="lifnrGr" value="<%= vo.getLifnrGr()%>" >
     <input type="hidden" name="ebelp" value="<%= vo.getEbelp()%>" >
     <input type="hidden" name="matsn" value="<%= vo.getMatsn()%>" >
-    <input type="hidden" name="werks" value="<%= vo.getWerks()%>" >
-    <input type="hidden" name="eindt" value="<%= vo.getEindt()%>" >
     <input type="hidden" name="prdft" value="<%= vo.getPrdft()%>" >
     <input type="hidden" name="prnam" value="<%= vo.getPrnam()%>" >
 

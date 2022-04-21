@@ -6,7 +6,7 @@ public class MproMstVO {
     private String lifnr;       //2계약업체 사업자번호
     private String lifnrGr;     //3납품업체 사업자번호
     private String ebelp;       //4품목번호
-    private String ebdat;       //5 주문일자 - 추가
+    private String bedat;       //5 주문일자 - 추가
     private String eindt;       //6 납기일자 - 추가
     private String lifnrNm;    //7 계약업체명 -- 추가
     private String lifnrGrnm;  //8 납품업체명  -- 추가
@@ -68,12 +68,12 @@ public class MproMstVO {
         this.ebelp = ebelp;
     }
 
-    public String getEbdat() {
-        return ebdat;
+    public String getBedat() {
+        return bedat;
     }
 
-    public void setEbdat(String ebdat) {
-        this.ebdat = ebdat;
+    public void setBedat(String bedat) {
+        this.bedat = bedat;
     }
 
     public String getEindt() {
@@ -283,7 +283,7 @@ public class MproMstVO {
                 ", lifnr='" + lifnr + '\'' +
                 ", lifnrGr='" + lifnrGr + '\'' +
                 ", ebelp='" + ebelp + '\'' +
-                ", ebdat='" + ebdat + '\'' +
+                ", bedat='" + bedat + '\'' +
                 ", eindt='" + eindt + '\'' +
                 ", lifnrNm='" + lifnrNm + '\'' +
                 ", lifnrGrnm='" + lifnrGrnm + '\'' +

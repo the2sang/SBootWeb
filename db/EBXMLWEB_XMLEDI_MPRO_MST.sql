@@ -5,7 +5,7 @@ create table XMLEDI_MPRO_MST
     LIFNR     VARCHAR2(10) not null,
     LIFNR_GR  VARCHAR2(10) not null,
     EBELP     VARCHAR2(5)  not null,
-    EBDAT       VARCHAR2(8), -- 추가 (0419)   주문일자
+    BEDAT       VARCHAR2(8), -- 추가 (0419)   주문일자 (0421) BEDAT 컬럼명 수정
     EINDT       VARCHAR2(8), --추가(0419)     납기일자
     LIFNR_NM    VARCHAR2(35), -- 추가(0419)   계약업체명(한글)
     LIFNR_GRNM  VARCHAR2(35),  -- 추가(0419)  납품업체명(한글)
@@ -48,7 +48,7 @@ comment on column XMLEDI_MPRO_MST.LIFNR_GR is '납품업체 (ERP 자동기록)'
 comment on column XMLEDI_MPRO_MST.EBELP is '품목번호 (ERP 자동기록)'
 /
 
-comment on column XMLEDI_MPRO_MST.EBDAT is '주문일자 (ERP 자동기록)'
+comment on column XMLEDI_MPRO_MST.BEDAT is '주문일자 (ERP 자동기록)'
 /
 
 comment on column XMLEDI_MPRO_MST.EINDT is '납기일자 (ERP 자동기록)'

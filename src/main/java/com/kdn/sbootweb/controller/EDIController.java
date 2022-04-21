@@ -267,11 +267,14 @@ public class EDIController {
         mv.addObject("mproDetVOList", saveList);
         mv.addObject("updateResult", updateResult);
 
+        //변압기 개폐기에 따라 페이지 전환
         if (mproMstVO.getAtwrtTp().equals("001")) {
             mv.setViewName("input_trans");
         } else if (mproMstVO.getAtwrtTp().equals("002")) {
             mv.setViewName("input_switch");
         }
+
+
 
         req.getSession().setAttribute("updateResult", updateResult);
 

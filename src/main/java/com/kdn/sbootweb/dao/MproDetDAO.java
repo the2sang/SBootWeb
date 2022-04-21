@@ -57,9 +57,9 @@ public class MproDetDAO {
                 mproDetVO.setAtwrt00103(rs.getString("ATWRT_001_03"));
                 mproDetVO.setAtwrt00104(rs.getString("ATWRT_001_04"));
                 mproDetVO.setAtwrt00105(rs.getString("ATWRT_001_05"));
-                mproDetVO.setAtwrt00106(rs.getString("ATWRT_001_06"));
-                mproDetVO.setAtwrt00107(rs.getString("ATWRT_001_07"));
-                mproDetVO.setAtwrt00108(rs.getString("ATWRT_001_08"));
+                mproDetVO.setAtwrt00106(rs.getInt("ATWRT_001_06"));
+                mproDetVO.setAtwrt00107(rs.getInt("ATWRT_001_07"));
+                mproDetVO.setAtwrt00108(rs.getInt("ATWRT_001_08"));
                 mproDetVO.setAtwrt00109(rs.getString("ATWRT_001_09"));
                 mproDetVO.setAtwrt00201(rs.getString("ATWRT_002_01"));
                 mproDetVO.setAtwrt00202(rs.getString("ATWRT_002_02"));
@@ -105,16 +105,16 @@ public class MproDetDAO {
 
             conn = ds.getConnection();
 
-            String sql001 = "UPDATE XMLEDI_MPRO_DET SET PRDFT = ?, PRDSN= ?, PRDDT = ?, PRNAM = ? " + //1,2,3,4
-                    " EBELN_PO = ? EBELP_PO = ? ATWRT_001_01 = ?  ATWRT_001_02 = ?  ATWRT_001_03 = ? " + //5,6,7,8,9
-                    "  ATWRT_001_04 = ?  ATWRT_001_05 = ?  ATWRT_001_06 = ?  ATWRT_001_07 = ? " + //10,11,12,13
-                    "  ATWRT_001_08 = ?  ATWRT_001_09 = ?  " + //22,23,24
+            String sql001 = "UPDATE XMLEDI_MPRO_DET SET PRDFT = ?, PRDSN= ?, PRDDT = ?, PRNAM = ?, " + //1,2,3,4
+                    " EBELN_PO = ?, EBELP_PO = ?, ATWRT_001_01 = ?,  ATWRT_001_02 = ?,  ATWRT_001_03 = ?, " + //5,6,7,8,9
+                    "  ATWRT_001_04 = ?,  ATWRT_001_05 = ?,  ATWRT_001_06 = ?,  ATWRT_001_07 = ?, " + //10,11,12,13
+                    "  ATWRT_001_08 = ?,  ATWRT_001_09 = ?  " + //22,23,24
                     " WHERE EBELN = ? AND LIFNR = ? AND LIFNR_GR = ? AND EBELP = ? AND MATSN = ?"; //25,26,27, 28, 29
 
-            String sql002 = "UPDATE XMLEDI_MPRO_DET SET PRDFT = ?, PRDSN= ?, PRDDT = ?, PRNAM = ? " + //1,2,3,4
-                    " EBELN_PO = ? EBELP_PO = ?  ATWRT_002_01 = ?  ATWRT_002_02 = ? " + //14,15,16,17
-                    "  ATWRT_002_03 = ?  ATWRT_002_04 = ?  ATWRT_002_05 = ?  ATWRT_002_06 = ? " + //18,19,20,21
-                    "  ATWRT_002_07 = ?  ATWRT_002_08 = ?  ATWRT_002_09 = ? " + //22,23,24
+            String sql002 = "UPDATE XMLEDI_MPRO_DET SET PRDFT = ?, PRDSN= ?, PRDDT = ?, PRNAM = ?, " + //1,2,3,4
+                    " EBELN_PO = ?, EBELP_PO = ?,  ATWRT_002_01 = ?,  ATWRT_002_02 = ?, " + //14,15,16,17
+                    "  ATWRT_002_03 = ?,  ATWRT_002_04 = ?,  ATWRT_002_05 = ?,  ATWRT_002_06 = ?, " + //18,19,20,21
+                    "  ATWRT_002_07 = ?,  ATWRT_002_08 = ?,  ATWRT_002_09 = ? " + //22,23,24
                     " WHERE EBELN = ? AND LIFNR = ? AND LIFNR_GR = ? AND EBELP = ? AND MATSN = ?"; //25,26,27, 28, 29
             if (type != null && type.equals("001")) {
                 ps = conn.prepareStatement(sql001);
@@ -140,14 +140,14 @@ public class MproDetDAO {
                     ps.setString(9, vo.getAtwrt00103());
                     ps.setString(10, vo.getAtwrt00104());
                     ps.setString(11, vo.getAtwrt00105());
-                    ps.setString(12, vo.getAtwrt00106());
-                    ps.setString(13, vo.getAtwrt00107());
-                    ps.setString(14, vo.getAtwrt00108());
+                    ps.setInt(12, vo.getAtwrt00106());
+                    ps.setInt(13, vo.getAtwrt00107());
+                    ps.setInt(14, vo.getAtwrt00108());
                     ps.setString(15, vo.getAtwrt00109());
                 }
 
                 if (type.equals("002")) {  //개폐기
-                    ps.setString(7, vo.getAtwrt00101());
+                    ps.setString(7, vo.getAtwrt00201());
                     ps.setString(8, vo.getAtwrt00202());
                     ps.setString(9, vo.getAtwrt00203());
                     ps.setString(10, vo.getAtwrt00204());

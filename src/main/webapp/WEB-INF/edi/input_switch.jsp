@@ -250,26 +250,26 @@
     <td style="text-align: center; background-color: #f0f0f0" ><%= vo.getMatsn() %></td>
     <td style="text-align: center; background-color: #f0f0f0" ><%= vo.getLifnrGr() %></td>
     <td style="text-align: center">
-      <input type="text" name="prdsn" size="12" class="input-class"  value="<%= vo.getPrdsn() %>" >
+      <input type="text" name="prdsn" size="20" maxlength="20" class="input-class"  value="<%= vo.getPrdsn() %>" >
     </td>
     <td style="text-align: center">
-      <input type="text" name="prddt" size="8" class="input-class" value="<%= vo.getPrddt() %>" >
+      <input type="text" name="prddt" size="8" maxlength="8" class="input-class" value="<%= vo.getPrddt() %>" >
     </td>
     <td style="text-align: center">
-      <input type="text" name="prdft" size="12" class="input-class" value="<%= vo.getPrdft()%>"  >
+      <input type="text" name="prdft" size="10" maxlength="10" class="input-class" value="<%= vo.getPrdft()%>"  >
     </td>
     <td style="text-align: center">
-      <input type="text" name="prnam" size="10" class="input-class" value="<%= vo.getPrnam()%>" >
+      <input type="text" name="prnam" size="8" maxlength="10" class="input-class" value="<%= vo.getPrnam()%>" >
     </td>
     <td style="text-align: center">
-      <input type="text" name="ebelnPo" size="14" maxlength="14" class="input-class" value="<%= vo.getEbelnPo()%>" >
+      <input type="text" name="ebelnPo" size="10" maxlength="10" class="input-class" value="<%= vo.getEbelnPo()%>" >
     </td>
     <td style="text-align: center">
-      <input type="text" name="ebelpPo" size="14" maxlength="14" class="input-class" value="<%= vo.getEbelpPo()%>" >
+      <input type="text" name="ebelpPo" size="5" maxlength="5" class="input-class" value="<%= vo.getEbelpPo()%>" >
     </td>
     <td style="text-align: center">
       <select name="atwrt00201" class="input-class">
-        <option value="" selected>-- 선택 --</option>
+        <option value="0" selected>-- 선택 --</option>
         <option value="1" <% if (vo.getAtwrt00201().equals("1")) { %> selected  <%  } %>   >400</option>
         <option value="2" <% if (vo.getAtwrt00201().equals("2")) { %>  selected  <% } %>   >600</option>
         <option value="3" <% if (vo.getAtwrt00201().equals("3")) { %>  selected  <% } %>   >630</option>
@@ -277,7 +277,7 @@
     </td>
     <td style="text-align: center">
       <select name="atwrt00202" class="input-class">
-        <option value="" selected>-- 선택 --</option>
+        <option value="0" selected>-- 선택 --</option>
         <option value="1" <% if (vo.getAtwrt00202().equals("1")) { %> selected  <%  } %>   >SF6</option>
         <option value="2" <% if (vo.getAtwrt00202().equals("2")) { %>  selected  <% } %>   >Vacuum</option>
         <option value="3" <% if (vo.getAtwrt00202().equals("3")) { %>  selected  <% } %>   >Oil</option>
@@ -286,7 +286,7 @@
     </td>
     <td style="text-align: center">
       <select name="atwrt00203" class="input-class">
-        <option value="" selected>-- 선택 --</option>
+        <option value="0" selected>-- 선택 --</option>
         <option value="1" <% if (vo.getAtwrt00203().equals("1")) { %> selected  <%  } %>   >SF6</option>
         <option value="2" <% if (vo.getAtwrt00203().equals("2")) { %>  selected  <% } %>   >Vacuum</option>
         <option value="3" <% if (vo.getAtwrt00203().equals("3")) { %>  selected  <% } %>   >Oil</option>
@@ -295,7 +295,7 @@
     </td>
     <td style="text-align: center">
       <select name="atwrt00204" class="input-class">
-        <option value="" selected>-- 선택 --</option>
+        <option value="0" selected>-- 선택 --</option>
         <option value="1" <% if (vo.getAtwrt00204().equals("1")) { %> selected  <%  } %>   >Spring</option>
         <option value="2" <% if (vo.getAtwrt00204().equals("2")) { %>  selected  <% } %>   >Magnetic</option>
         <option value="3" <% if (vo.getAtwrt00204().equals("3")) { %>  selected  <% } %>   >기타</option>
@@ -303,7 +303,7 @@
     </td>
     <td style="text-align: center">
       <select name="atwrt00205" class="input-class">
-        <option value="" selected>-- 선택 --</option>
+        <option value="0" selected>-- 선택 --</option>
         <option value="1" <% if (vo.getAtwrt00205().equals("1")) { %> selected  <%  } %>   >자기제</option>
         <option value="2" <% if (vo.getAtwrt00205().equals("2")) { %>  selected  <% } %>   >폴리머</option>
         <option value="3" <% if (vo.getAtwrt00205().equals("3")) { %>  selected  <% } %>   >에폭시</option>
@@ -311,7 +311,7 @@
     </td>
     <td style="text-align: center">
       <select name="atwrt00206" class="input-class">
-        <option value="" selected>-- 선택 --</option>
+        <option value="0" selected>-- 선택 --</option>
         <option value="1" <% if (vo.getAtwrt00206().equals("1")) { %> selected  <%  } %>   >자기제</option>
         <option value="2" <% if (vo.getAtwrt00206().equals("2")) { %>  selected  <% } %>   >폴리머</option>
         <option value="3" <% if (vo.getAtwrt00206().equals("3")) { %>  selected  <% } %>   >에폭시</option>

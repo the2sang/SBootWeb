@@ -107,6 +107,11 @@
       margin: 5px;
     }
 
+    #selector{
+      color:red;
+    }
+
+
   </style>
 
   <script type="text/javascript">
@@ -271,7 +276,7 @@
         </td>
         <td style="text-align: center">
           <select name="atwrt00101" class="input-class">
-            <option value="" selected>-- 선택 --</option>
+            <option value="0" id="selector" selected >-- 선택 --</option>
             <option value="1" <% if (vo.getAtwrt00101().equals("1")) { %> selected  <%  } %>   >자기제</option>
             <option value="2" <% if (vo.getAtwrt00101().equals("2")) { %>  selected  <% } %>   >폴리머</option>
             <option value="3" <% if (vo.getAtwrt00101().equals("3")) { %>  selected  <% } %>   >에폭시</option>
@@ -279,7 +284,7 @@
         </td>
         <td style="text-align: center" >
           <select name="atwrt00102" class="input-class">
-            <option value="" selected>-- 선택 --</option>
+            <option value="0" selected>-- 선택 --</option>
             <option value="1" <% if (vo.getAtwrt00102().equals("1")) { %> selected  <%  } %>   >자기제</option>
             <option value="2" <% if (vo.getAtwrt00102().equals("2")) { %>  selected  <% } %>   >폴리머</option>
             <option value="3" <% if (vo.getAtwrt00102().equals("3")) { %>  selected  <% } %>   >에폭시</option>
@@ -287,14 +292,14 @@
         </td>
         <td style="text-align: center">
           <select name="atwrt00103" class="input-class">
-            <option value="" selected>-- 선택 --</option>
+            <option value="0" selected >-- 선택 --</option>
             <option value="1" <% if (vo.getAtwrt00103().equals("1")) { %> selected  <%  } %>   >Cu</option>
             <option value="2" <% if (vo.getAtwrt00103().equals("2")) { %>  selected  <% } %>   >AL</option>
           </select>
         </td>
         <td style="text-align: center">
           <select name="atwrt00104" class="input-class">
-            <option value="" selected>-- 선택 --</option>
+            <option value="0" selected >-- 선택 --</option>
             <option value="1" <% if (vo.getAtwrt00104().equals("1")) { %> selected  <%  } %>   >광유</option>
             <option value="2" <% if (vo.getAtwrt00104().equals("2")) { %>  selected  <% } %>   >실리콘유</option>
             <option value="3" <% if (vo.getAtwrt00104().equals("3")) { %>  selected  <% } %>   >식물유</option>
@@ -303,7 +308,7 @@
         </td>
         <td style="text-align: center">
           <select name="atwrt00105" class="input-class">
-            <option value="" selected>-- 선택 --</option>
+            <option value="0" selected>-- 선택 --</option>
             <option value="1" <% if (vo.getAtwrt00105().equals("1")) { %> selected  <%  } %>   >90</option>
             <option value="2" <% if (vo.getAtwrt00105().equals("2")) { %>  selected  <% } %>   >105</option>
             <option value="3" <% if (vo.getAtwrt00105().equals("3")) { %>  selected  <% } %>   >120</option>
@@ -324,7 +329,7 @@
         </td>
         <td style="text-align: center">
           <select name="atwrt00109" class="input-class">
-            <option value="" selected>-- 선택 --</option>
+            <option value="0" selected>-- 선택 --</option>
             <option value="1" <% if (vo.getAtwrt00109().equals("1")) { %> selected  <%  } %>   >Kraft</option>
             <option value="2" <% if (vo.getAtwrt00109().equals("2")) { %>  selected  <% } %>   >Diamond Kraft</option>
             <option value="3" <% if (vo.getAtwrt00109().equals("3")) { %>  selected  <% } %>   >D.Kraft(Thermally upgraded)</option>

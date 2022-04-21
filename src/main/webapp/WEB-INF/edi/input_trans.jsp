@@ -97,6 +97,11 @@
       margin: 5px;
     }
 
+    .confirmBtnArea {
+      float: left;
+      margin: 5px;
+    }
+
     .confirm {
       float: right;
       margin: 5px;
@@ -247,49 +252,85 @@
         <td style="text-align: center; background-color: #f0f0f0" ><%= vo.getMatsn() %></td>
         <td style="text-align: center; background-color: #f0f0f0" ><%= vo.getLifnrGr() %></td>
         <td style="text-align: center">
-          <input type="text" name="prdsn" size="12" class="input-class"  value="<%= vo.getPrdsn() %>" >
+          <input type="text" name="prdsn" size="20" maxlength="20" class="input-class"  value="<%= vo.getPrdsn() %>" >
         </td>
         <td style="text-align: center">
-          <input type="text" name="prddt" size="8" class="input-class" value="<%= vo.getPrddt() %>" >
+          <input type="text" name="prddt" size="8" maxlength="8" class="input-class" value="<%= vo.getPrddt() %>" >
         </td>
         <td style="text-align: center">
-          <input type="text" name="prdft" size="12" class="input-class" value="<%= vo.getPrdft()%>"  >
+          <input type="text" name="prdft" size="10" maxlength="10" class="input-class" value="<%= vo.getPrdft()%>"  >
         </td>
         <td style="text-align: center">
-          <input type="text" name="prnam" size="10" class="input-class" value="<%= vo.getPrnam()%>" >
+          <input type="text" name="prnam" size="8" maxlength="10" class="input-class" value="<%= vo.getPrnam()%>" >
         </td>
         <td style="text-align: center">
-          <input type="text" name="ebelnPo" size="14" maxlength="14" class="input-class" value="<%= vo.getEbelnPo()%>" >
+          <input type="text" name="ebelnPo" size="10" maxlength="10" class="input-class" value="<%= vo.getEbelnPo()%>" >
         </td>
         <td style="text-align: center">
-          <input type="text" name="ebelpPo" size="14" maxlength="14" class="input-class" value="<%= vo.getEbelpPo()%>" >
+          <input type="text" name="ebelpPo" size="5" maxlength="5" class="input-class" value="<%= vo.getEbelpPo()%>" >
         </td>
         <td style="text-align: center">
-          <input type="text" name="atwrt00101" size="3" maxlength="1" class="input-class" value="<%= vo.getAtwrt00101()%>" >
+          <select name="atwrt00101" class="input-class">
+            <option value="" selected>-- 선택 --</option>
+            <option value="1" <% if (vo.getAtwrt00101().equals("1")) { %> selected  <%  } %>   >자기제</option>
+            <option value="2" <% if (vo.getAtwrt00101().equals("2")) { %>  selected  <% } %>   >폴리머</option>
+            <option value="3" <% if (vo.getAtwrt00101().equals("3")) { %>  selected  <% } %>   >에폭시</option>
+          </select>
+        </td>
+        <td style="text-align: center" >
+          <select name="atwrt00102" class="input-class">
+            <option value="" selected>-- 선택 --</option>
+            <option value="1" <% if (vo.getAtwrt00102().equals("1")) { %> selected  <%  } %>   >자기제</option>
+            <option value="2" <% if (vo.getAtwrt00102().equals("2")) { %>  selected  <% } %>   >폴리머</option>
+            <option value="3" <% if (vo.getAtwrt00102().equals("3")) { %>  selected  <% } %>   >에폭시</option>
+          </select>
         </td>
         <td style="text-align: center">
-          <input type="text" name="atwrt00102" size="3" maxlength="1" class="input-class" value="<%= vo.getAtwrt00102()%>" >
+          <select name="atwrt00103" class="input-class">
+            <option value="" selected>-- 선택 --</option>
+            <option value="1" <% if (vo.getAtwrt00103().equals("1")) { %> selected  <%  } %>   >Cu</option>
+            <option value="2" <% if (vo.getAtwrt00103().equals("2")) { %>  selected  <% } %>   >AL</option>
+          </select>
         </td>
         <td style="text-align: center">
-          <input type="text" name="atwrt00103" size="3" maxlength="1" class="input-class" value="<%= vo.getAtwrt00103()%>" >
+          <select name="atwrt00104" class="input-class">
+            <option value="" selected>-- 선택 --</option>
+            <option value="1" <% if (vo.getAtwrt00104().equals("1")) { %> selected  <%  } %>   >광유</option>
+            <option value="2" <% if (vo.getAtwrt00104().equals("2")) { %>  selected  <% } %>   >실리콘유</option>
+            <option value="3" <% if (vo.getAtwrt00104().equals("3")) { %>  selected  <% } %>   >식물유</option>
+            <option value="4" <% if (vo.getAtwrt00104().equals("4")) { %>  selected  <% } %>   >난연유</option>
+          </select>
         </td>
         <td style="text-align: center">
-          <input type="text" name="atwrt00104" size="3" maxlength="1" class="input-class" value="<%= vo.getAtwrt00104()%>" >
+          <select name="atwrt00105" class="input-class">
+            <option value="" selected>-- 선택 --</option>
+            <option value="1" <% if (vo.getAtwrt00105().equals("1")) { %> selected  <%  } %>   >90</option>
+            <option value="2" <% if (vo.getAtwrt00105().equals("2")) { %>  selected  <% } %>   >105</option>
+            <option value="3" <% if (vo.getAtwrt00105().equals("3")) { %>  selected  <% } %>   >120</option>
+            <option value="4" <% if (vo.getAtwrt00105().equals("4")) { %>  selected  <% } %>   >130</option>
+            <option value="5" <% if (vo.getAtwrt00105().equals("5")) { %>  selected  <% } %>   >155</option>
+            <option value="6" <% if (vo.getAtwrt00105().equals("6")) { %>  selected  <% } %>   >180</option>
+            <option value="7" <% if (vo.getAtwrt00105().equals("7")) { %>  selected  <% } %>   >180 이상</option>
+          </select>
         </td>
         <td style="text-align: center">
-          <input type="text" name="atwrt00105" size="3" maxlength="1" class="input-class" value="<%= vo.getAtwrt00105()%>" >
+          <input type="text" name="atwrt00106" size="3" maxlength="4" class="input-class" value="<%= vo.getAtwrt00106()%>" >
         </td>
         <td style="text-align: center">
-          <input type="text" name="atwrt00106" size="3" maxlength="1" class="input-class" value="<%= vo.getAtwrt00106()%>" >
+          <input type="text" name="atwrt00107" size="3" maxlength="4" class="input-class" value="<%= vo.getAtwrt00107()%>" >
         </td>
         <td style="text-align: center">
-          <input type="text" name="atwrt00107" size="3" maxlength="1" class="input-class" value="<%= vo.getAtwrt00107()%>" >
+          <input type="text" name="atwrt00108" size="3" maxlength="4" class="input-class" value="<%= vo.getAtwrt00108()%>" >
         </td>
         <td style="text-align: center">
-          <input type="text" name="atwrt00108" size="3" maxlength="1" class="input-class" value="<%= vo.getAtwrt00108()%>" >
-        </td>
-        <td style="text-align: center">
-          <input type="text" name="atwrt00109" size="3" maxlength="1" class="input-class" value="<%= vo.getAtwrt00109()%>" >
+          <select name="atwrt00109" class="input-class">
+            <option value="" selected>-- 선택 --</option>
+            <option value="1" <% if (vo.getAtwrt00109().equals("1")) { %> selected  <%  } %>   >Kraft</option>
+            <option value="2" <% if (vo.getAtwrt00109().equals("2")) { %>  selected  <% } %>   >Diamond Kraft</option>
+            <option value="3" <% if (vo.getAtwrt00109().equals("3")) { %>  selected  <% } %>   >D.Kraft(Thermally upgraded)</option>
+            <option value="4" <% if (vo.getAtwrt00109().equals("4")) { %>  selected  <% } %>   >H종 노맥스지</option>
+            <option value="4" <% if (vo.getAtwrt00109().equals("5")) { %>  selected  <% } %>   >기타</option>
+          </select>
         </td>
       </tr>
 <%
@@ -303,8 +344,11 @@
 
   </form>
 
-    <button onclick="confirmMproData('confirm');"  >확정</button>
-    <button onclick="confirmMproData('cancel');"  id="cancelBtn" >확정취소</button>
+    <div class="confirmBtnArea">
+      <button onclick="confirmMproData('confirm');"  >확정</button>
+      <button onclick="confirmMproData('cancel');"  id="cancelBtn" >확정취소</button>
+    </div>
+
 
 </div>
 

@@ -37,45 +37,6 @@ public class MproDetVO {
     public MproDetVO() {
     }
 
-    public MproDetVO(String ebeln, String lifnr, String lifnrGr, String ebelp, String matsn, String prdft,
-                     String prdsn, String prddt, String prnam, String ebelnPo, String ebelpPo,
-                     String atwrt00101, String atwrt00102, String atwrt00103, String atwrt00104,
-                     String atwrt00105, int atwrt00106, int atwrt00107, int atwrt00108, String atwrt00109,
-                     String atwrt00201, String atwrt00202, String atwrt00203, String atwrt00204,
-                     String atwrt00205, String atwrt00206, float atwrt00207, float atwrt00208, float atwrt00209,
-                     String recvst, String recvmg) {
-        this.ebeln = ebeln;
-        this.lifnr = lifnr;
-        this.lifnrGr = lifnrGr;
-        this.ebelp = ebelp;
-        this.matsn = matsn;
-        this.prdft = prdft;
-        this.prdsn = prdsn;
-        this.prddt = prddt;
-        this.prnam = prnam;
-        this.ebelnPo = ebelnPo;
-        this.ebelpPo = ebelpPo;
-        this.atwrt00101 = atwrt00101;
-        this.atwrt00102 = atwrt00102;
-        this.atwrt00103 = atwrt00103;
-        this.atwrt00104 = atwrt00104;
-        this.atwrt00105 = atwrt00105;
-        this.atwrt00106 = atwrt00106;
-        this.atwrt00107 = atwrt00107;
-        this.atwrt00108 = atwrt00108;
-        this.atwrt00109 = atwrt00109;
-        this.atwrt00201 = atwrt00201;
-        this.atwrt00202 = atwrt00202;
-        this.atwrt00203 = atwrt00203;
-        this.atwrt00204 = atwrt00204;
-        this.atwrt00205 = atwrt00205;
-        this.atwrt00206 = atwrt00206;
-        this.atwrt00207 = atwrt00207;
-        this.atwrt00208 = atwrt00208;
-        this.atwrt00209 = atwrt00209;
-        this.recvst = recvst;
-        this.recvmg = recvmg;
-    }
 
     public String getEbeln() {
         return ebeln;

@@ -266,7 +266,12 @@ public class EDIController {
         mv.addObject("mproMstVO", mproMstVO);
         mv.addObject("mproDetVOList", saveList);
         mv.addObject("updateResult", updateResult);
-        mv.setViewName("input_trans");
+
+        if (mproMstVO.getAtwrtTp().equals("001")) {
+            mv.setViewName("input_trans");
+        } else if (mproMstVO.getAtwrtTp().equals("002")) {
+            mv.setViewName("input_switch");
+        }
 
         req.getSession().setAttribute("updateResult", updateResult);
 

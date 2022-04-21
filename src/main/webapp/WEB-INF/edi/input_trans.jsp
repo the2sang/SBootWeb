@@ -174,22 +174,22 @@
     <td>${mproMstVO.ebeln}</td>
     <td style="width: 200px"></td>
     <th style="width: 60px">주문일자</th>
-    <td colspan="2">2021.02.01</td>
+    <td colspan="2">${mproMstVO.bedat}</td>
   </tr>
   <tr>
     <th>납품업체</th>
-    <td>사업자번호</td>
-    <td></td>
+    <td>${mproMstVO.lifnrGr}</td>
+    <td>${mproMstVO.lifnrGrnm}</td>
     <th>계약업체</th>
     <td>${mproMstVO.lifnr}</td>
-    <td style="width: 200px"></td>
+    <td style="width: 200px">${mproMstVO.lifnrNm}</td>
   </tr>
   <tr>
     <th>입고사업소</th>
     <td>${mproMstVO.lifnr}</td>
-    <td>경인권 물류센터</td>
+    <td>${mproMstVO.name1}</td>
     <th>납기일자</th>
-    <td colspan="2">2021.02.20</td>
+    <td colspan="2">${mproMstVO.eindt}</td>
   </tr>
 </table>
 

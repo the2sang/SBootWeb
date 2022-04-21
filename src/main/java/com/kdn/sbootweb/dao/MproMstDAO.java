@@ -38,6 +38,7 @@ public class MproMstDAO {
                 mproMstVO.setLifnrGr(rs.getString("LIFNR_GR"));
                 mproMstVO.setEbelp(rs.getString("EBELP"));
                 mproMstVO.setBedat(rs.getString("BEDAT")); //
+                mproMstVO.setEindt(rs.getString("EINDT"));
                 mproMstVO.setLifnrNm(rs.getString("LIFNR_NM")); //
                 mproMstVO.setLifnrGrnm(rs.getString("LIFNR_GRNM")); //
                 mproMstVO.setWerks(rs.getString("WERKS")); //

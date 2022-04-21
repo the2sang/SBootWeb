@@ -116,28 +116,50 @@
   <script type="text/javascript">
 
     $(document).ready(function(){
+
       // process..
-      let confirmDefault;
+      $('#confirmBtn').on("click", function(e){
+        e.preventDefault();
 
-      confirmDefault = <%= request.getSession().getAttribute("confirmCheck")%>;
+        var url = "/confirmMproDetTransData?confirmData=true";
+        $.ajax({
+          type: "GET",
+          url: url,
+          success: function(data) {
+            //alert("확정 취소되어 다시 등록할 수 있습니다.");
+            $(".input-class").attr("disabled", true);
+            $('#tempSaveBtn').attr("disabled", true);
+            $('#tempSaveBtn').css({'color':'white', 'background-color':'darkgrey'});
+          },
+          error: function(data) {
+            alert("저장실패");
+          }
+        });
+      });
 
-      if (confirmDefault === true ) {
-        alert("확정되어 전송 상태로 전환되었습니다. 확정취소하시면 다시 등록할 수 있습니다.");
-        $(".input-class").attr("disabled", true);
-        $('#tempSaveBtn').attr("disabled", true);
-        $('#tempSaveBtn').css({'color':'white', 'background-color':'darkgrey'});
 
-        <% request.getSession().removeAttribute("confirmCheck"); %>
-      }
 
-      $('#cancelBtn').click(function(){
-        //alert("cancel");
-        <% request.getSession().setAttribute("confirmCheck", false); %>
-        confirmDefault = false;
-        $(".input-class").attr("disabled", false);
+      $('#cancelBtn').on("click", function(e){
+        e.preventDefault();
+
+        var url = "/confirmMproDetTransData?confirmData=false";
+        $.ajax({
+          type: "GET",
+          url: url,
+          success: function(data) {
+            //alert("확정되어 전송 상태로 전환되었습니다. 확정취소하시면 다시 등록할 수 있습니다.");
+            $(".input-class").attr("disabled", false);
+            $('#tempSaveBtn').attr("disabled", false);
+            $('#tempSaveBtn').css({'color':'white', 'background-color':'blue'});
+          },
+          error: function(data) {
+            alert("저장실패");
+          }
+        });
       });
 
       $("#tempSaveBtn").click(function(ev) {
+        ev.preventDefault();
         var form = $("#saveForm");
         var url = form.attr('action');
         $.ajax({
@@ -156,9 +178,6 @@
 
     });
 
-    function confirmMproData(check) {
-      location.href = "/confirmMproDetData?confirmData=" + check;
-    }
   </script>
 </head>
 
@@ -167,33 +186,33 @@
 
 <%
 
-  MproMstVO header = (MproMstVO)request.getAttribute("mproMstVO");
-  List<MproDetVO> detailList = (List<MproDetVO>)request.getAttribute("mproDetVOList");
+  MproMstVO header = (MproMstVO)request.getAttribute("transHeader");
+  List<MproDetVO> detailList = (List<MproDetVO>)request.getAttribute("transItem");
 
 %>
 
 <table class="header-table">
   <tr>
     <th style="width: 60px">주문번호</th>
-    <td>${mproMstVO.ebeln}</td>
+    <td><%= header.getEbeln()%></td>
     <td style="width: 200px"></td>
     <th style="width: 60px">주문일자</th>
-    <td colspan="2">${mproMstVO.bedat}</td>
+    <td colspan="2"><%= header.getBedat()%></td>
   </tr>
   <tr>
     <th>납품업체</th>
-    <td>${mproMstVO.lifnrGr}</td>
-    <td>${mproMstVO.lifnrGrnm}</td>
+    <td><%= header.getLifnrGr()%></td>
+    <td><%= header.getLifnrGrnm()%></td>
     <th>계약업체</th>
-    <td>${mproMstVO.lifnr}</td>
-    <td style="width: 200px">${mproMstVO.lifnrNm}</td>
+    <td><%=header.getLifnr()%></td>
+    <td style="width: 200px"><%=header.getLifnrNm() %></td>
   </tr>
   <tr>
     <th>입고사업소</th>
-    <td>${mproMstVO.lifnr}</td>
-    <td>${mproMstVO.name1}</td>
+    <td><%=header.getLifnr()%></td>
+    <td><%=header.getName1()%></td>
     <th>납기일자</th>
-    <td colspan="2">${mproMstVO.eindt}</td>
+    <td colspan="2"><%=header.getEindt()%></td>
   </tr>
 </table>
 
@@ -212,16 +231,16 @@
         <th style="width: 82px">LOT번호</th>
       </tr>
       <tr>
-        <td>${mproMstVO.matnr}</td>
-        <td>${mproMstVO.txz01}</td>
-        <td style="text-align: right">${mproMstVO.menge}</td>
-        <td style="text-align: right">${mproMstVO.netpr}</td>
-        <td style="text-align: right">${mproMstVO.netwr}</td>
-        <td style="text-align: right">${mproMstVO.zbpmng}</td>
-        <td style="text-align: right">${mproMstVO.prueflog}</td>
+        <td><%=header.getMatnr()%></td>
+        <td><%=header.getTxz01()%></td>
+        <td style="text-align: right"><%=header.getMenge()%></td>
+        <td style="text-align: right"><%=header.getNetpr()%></td>
+        <td style="text-align: right"><%=header.getNetwr()%></td>
+        <td style="text-align: right"><%=header.getZbpmng()%></td>
+        <td style="text-align: right"><%=header.getPrueflog()%></td>
       </tr>
   </table>
-  <form class="mproForm" id="saveForm"  action="/updateMproDetList" method="post" >
+  <form class="mproForm" id="saveForm"  action="/updateMproDetTransList" method="post" >
     <table class="detail-table">
       <tr>
         <th style="width: 120px">표준인식번호</th>
@@ -349,16 +368,16 @@
   </form>
 
     <div class="confirmBtnArea">
-      <button onclick="confirmMproData('confirm');"  >확정</button>
-      <button onclick="confirmMproData('cancel');"  id="cancelBtn" >확정취소</button>
+      <button  id="confirmBtn"  >확정</button>
+      <button  id="cancelBtn" >확정취소</button>
     </div>
 
 
 </div>
 
 <%
-  session.setAttribute("mproMstVO", header);
-  session.setAttribute("mproDetVOList", detailList);
+  session.setAttribute("transHeader", header);
+  session.setAttribute("transItem", detailList);
 %>
 
 </body>

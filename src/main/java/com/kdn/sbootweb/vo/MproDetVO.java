@@ -18,9 +18,9 @@ public class MproDetVO {
     private String atwrt00103;  //14.변압기 권선종류
     private String atwrt00104;  //15.변압기 절연유타입
     private String atwrt00105;  //16.변압기 절연지 내열온도
-    private String atwrt00106;  //17.변압기 유량
-    private String atwrt00107;  //18.변압기 무부하손
-    private String atwrt00108;  //19.변압기 부하손
+    private int atwrt00106;  //17.변압기 유량
+    private int atwrt00107;  //18.변압기 무부하손
+    private int atwrt00108;  //19.변압기 부하손
     private String atwrt00109;  //20.변압기 절연지 종류   (0419 추가)  ----------
     private String atwrt00201;  //21.개폐기 정격전류
     private String atwrt00202;  //22.개폐기 스위칭매체
@@ -35,6 +35,46 @@ public class MproDetVO {
     private String recvmg;      //31.개별자재 생산내역서 내용 점검 결과 (오류 메세지 기록)
 
     public MproDetVO() {
+    }
+
+    public MproDetVO(String ebeln, String lifnr, String lifnrGr, String ebelp, String matsn, String prdft,
+                     String prdsn, String prddt, String prnam, String ebelnPo, String ebelpPo,
+                     String atwrt00101, String atwrt00102, String atwrt00103, String atwrt00104,
+                     String atwrt00105, int atwrt00106, int atwrt00107, int atwrt00108, String atwrt00109,
+                     String atwrt00201, String atwrt00202, String atwrt00203, String atwrt00204,
+                     String atwrt00205, String atwrt00206, float atwrt00207, float atwrt00208, float atwrt00209,
+                     String recvst, String recvmg) {
+        this.ebeln = ebeln;
+        this.lifnr = lifnr;
+        this.lifnrGr = lifnrGr;
+        this.ebelp = ebelp;
+        this.matsn = matsn;
+        this.prdft = prdft;
+        this.prdsn = prdsn;
+        this.prddt = prddt;
+        this.prnam = prnam;
+        this.ebelnPo = ebelnPo;
+        this.ebelpPo = ebelpPo;
+        this.atwrt00101 = atwrt00101;
+        this.atwrt00102 = atwrt00102;
+        this.atwrt00103 = atwrt00103;
+        this.atwrt00104 = atwrt00104;
+        this.atwrt00105 = atwrt00105;
+        this.atwrt00106 = atwrt00106;
+        this.atwrt00107 = atwrt00107;
+        this.atwrt00108 = atwrt00108;
+        this.atwrt00109 = atwrt00109;
+        this.atwrt00201 = atwrt00201;
+        this.atwrt00202 = atwrt00202;
+        this.atwrt00203 = atwrt00203;
+        this.atwrt00204 = atwrt00204;
+        this.atwrt00205 = atwrt00205;
+        this.atwrt00206 = atwrt00206;
+        this.atwrt00207 = atwrt00207;
+        this.atwrt00208 = atwrt00208;
+        this.atwrt00209 = atwrt00209;
+        this.recvst = recvst;
+        this.recvmg = recvmg;
     }
 
     public String getEbeln() {
@@ -165,27 +205,27 @@ public class MproDetVO {
         this.atwrt00105 = atwrt00105;
     }
 
-    public String getAtwrt00106() {
+    public int getAtwrt00106() {
         return atwrt00106;
     }
 
-    public void setAtwrt00106(String atwrt00106) {
+    public void setAtwrt00106(int atwrt00106) {
         this.atwrt00106 = atwrt00106;
     }
 
-    public String getAtwrt00107() {
+    public int getAtwrt00107() {
         return atwrt00107;
     }
 
-    public void setAtwrt00107(String atwrt00107) {
+    public void setAtwrt00107(int atwrt00107) {
         this.atwrt00107 = atwrt00107;
     }
 
-    public String getAtwrt00108() {
+    public int getAtwrt00108() {
         return atwrt00108;
     }
 
-    public void setAtwrt00108(String atwrt00108) {
+    public void setAtwrt00108(int atwrt00108) {
         this.atwrt00108 = atwrt00108;
     }
 
@@ -304,9 +344,9 @@ public class MproDetVO {
                 ", atwrt00103='" + atwrt00103 + '\'' +
                 ", atwrt00104='" + atwrt00104 + '\'' +
                 ", atwrt00105='" + atwrt00105 + '\'' +
-                ", atwrt00106='" + atwrt00106 + '\'' +
-                ", atwrt00107='" + atwrt00107 + '\'' +
-                ", atwrt00108='" + atwrt00108 + '\'' +
+                ", atwrt00106=" + atwrt00106 +
+                ", atwrt00107=" + atwrt00107 +
+                ", atwrt00108=" + atwrt00108 +
                 ", atwrt00109='" + atwrt00109 + '\'' +
                 ", atwrt00201='" + atwrt00201 + '\'' +
                 ", atwrt00202='" + atwrt00202 + '\'' +

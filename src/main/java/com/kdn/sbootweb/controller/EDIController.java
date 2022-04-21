@@ -167,7 +167,8 @@ public class EDIController {
             vo.setEbeln(ebelns[i]);
             vo.setLifnr(lifnrs[i]);
             vo.setLifnrGr(lifnrGrs[i]);
-            vo.setEbelp(ebelps[i]); //where
+            vo.setEbelp(ebelps[i]);
+            vo.setMatsn(matsns[i]);   //where
 
             if (prdfts[i] != null && !prdfts.equals("")) {
                 vo.setPrdft(prdfts[i]);
@@ -211,13 +212,13 @@ public class EDIController {
                     vo.setAtwrt00105(atwrt00105s[i]);
                 }
                 if (!StringUtils.isEmpty(atwrt00106s[i])) {
-                    vo.setAtwrt00106(atwrt00106s[i]);
+                    vo.setAtwrt00106(new Integer(atwrt00106s[i]).intValue());
                 }
                 if (!StringUtils.isEmpty(atwrt00107s[i])) {
-                    vo.setAtwrt00107(atwrt00107s[i]);
+                    vo.setAtwrt00107(new Integer(atwrt00107s[i]).intValue());
                 }
                 if (!StringUtils.isEmpty(atwrt00108s[i])) {
-                    vo.setAtwrt00108(atwrt00108s[i]);
+                    vo.setAtwrt00108(new Integer(atwrt00108s[i]).intValue());
                 }
                 if (!StringUtils.isEmpty(atwrt00109s[i])) {
                     vo.setAtwrt00109(atwrt00109s[i]);

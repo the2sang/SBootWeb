@@ -2,8 +2,7 @@
 <%@ page import="com.kdn.sbootweb.vo.MproDetVO" %>
 <%@ page import="java.util.List" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -334,7 +333,7 @@
             <option value="2" <% if (vo.getAtwrt00109().equals("2")) { %>  selected  <% } %>   >Diamond Kraft</option>
             <option value="3" <% if (vo.getAtwrt00109().equals("3")) { %>  selected  <% } %>   >D.Kraft(Thermally upgraded)</option>
             <option value="4" <% if (vo.getAtwrt00109().equals("4")) { %>  selected  <% } %>   >H종 노맥스지</option>
-            <option value="4" <% if (vo.getAtwrt00109().equals("5")) { %>  selected  <% } %>   >기타</option>
+            <option value="5" <% if (vo.getAtwrt00109().equals("5")) { %>  selected  <% } %>   >기타</option>
           </select>
         </td>
       </tr>

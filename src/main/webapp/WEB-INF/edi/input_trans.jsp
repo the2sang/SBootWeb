@@ -1,6 +1,7 @@
 <%@ page import="com.kdn.sbootweb.vo.MproMstVO" %>
 <%@ page import="com.kdn.sbootweb.vo.MproDetVO" %>
 <%@ page import="java.util.List" %>
+<%@ page import="org.apache.commons.lang3.StringUtils" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 
 <html>
@@ -9,7 +10,12 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+  <%
 
+    MproMstVO header = (MproMstVO)request.getAttribute("transHeader");
+    List<MproDetVO> detailList = (List<MproDetVO>)request.getAttribute("transItem");
+
+  %>
 
   <title>자재 생산정보 내역서(변압기)</title>
 
@@ -78,7 +84,7 @@
 
     button {
       all:unset;
-      background-color: steelblue;
+      background-color: #06357a;
       color: white;
       padding: 5px 20px;
       border-radius: 5px;
@@ -117,6 +123,22 @@
 
     $(document).ready(function(){
 
+      var confirmCheck = "<%= header.getInputSt()%>";
+
+        if (confirmCheck === 'C') {
+          $(".input-class").attr("disabled", true);
+          $('#tempSaveBtn').attr("disabled", true);
+          $('#tempSaveBtn').css({'color':'white', 'background-color':'darkgrey'});
+        }
+
+      //alert("chk:" + confirmCheck);
+
+      <%--if (confirmCheck === 'C') {--%>
+      <%--  $(".input-class").attr("disabled", true);--%>
+      <%--  $('#tempSaveBtn').attr("disabled", true);--%>
+      <%--  $('#tempSaveBtn').css({'color':'white', 'background-color':'darkgrey'});--%>
+      <%--}--%>
+
       // process..
       $('#confirmBtn').on("click", function(e){
         e.preventDefault();
@@ -150,7 +172,7 @@
             //alert("확정되어 전송 상태로 전환되었습니다. 확정취소하시면 다시 등록할 수 있습니다.");
             $(".input-class").attr("disabled", false);
             $('#tempSaveBtn').attr("disabled", false);
-            $('#tempSaveBtn').css({'color':'white', 'background-color':'blue'});
+            $('#tempSaveBtn').css({'color':'white', 'background-color':'#3b5998'});
           },
           error: function(data) {
             alert("저장실패");
@@ -184,12 +206,7 @@
 <body>
 <h2 style="margin: 20px">개별관리 자재 생산정보 내역서(변압기)</h2>
 
-<%
 
-  MproMstVO header = (MproMstVO)request.getAttribute("transHeader");
-  List<MproDetVO> detailList = (List<MproDetVO>)request.getAttribute("transItem");
-
-%>
 
 <table class="header-table">
   <tr>
@@ -197,7 +214,7 @@
     <td><%= header.getEbeln()%></td>
     <td style="width: 200px"></td>
     <th style="width: 60px">주문일자</th>
-    <td colspan="2"><%= header.getBedat()%></td>
+    <td colspan="2"><% if (!StringUtils.isEmpty(header.getBedat())) { %><%=header.getBedat()%> <% } %></td>
   </tr>
   <tr>
     <th>납품업체</th>
@@ -212,7 +229,7 @@
     <td><%=header.getLifnr()%></td>
     <td><%=header.getName1()%></td>
     <th>납기일자</th>
-    <td colspan="2"><%=header.getEindt()%></td>
+    <td colspan="2"><% if (!StringUtils.isEmpty(header.getEindt())) { %><%=header.getEindt()%> <% } %></td>
   </tr>
 </table>
 
@@ -248,7 +265,7 @@
         <th style="width: 90px; background-color: #fff3cd">제조번호</th>
         <th style="width: 70px; background-color: #fff3cd" class="detail-input-th">생산일자</th>
         <th style="width: 120px; background-color: #fff3cd">생산공장</th>
-        <th style="width: 120px; background-color: #fff3cd">제작자</th>
+        <th style="width: 120px; background-color: #fff3cd">제작자(성명)</th>
         <th style="width: 120px; background-color: #fff3cd">인도지시서번호</th>
         <th style="width: 120px; background-color: #fff3cd">인도지시서품목</th>
         <th style="width: 120px; background-color: #fff3cd">1차 부싱타입</th>
@@ -275,26 +292,26 @@
         <td style="text-align: center; background-color: #f0f0f0" ><%= vo.getMatsn() %></td>
         <td style="text-align: center; background-color: #f0f0f0" ><%= vo.getLifnrGr() %></td>
         <td style="text-align: center">
-          <input type="text" name="prdsn" size="20" maxlength="20" class="input-class"  value="<%= vo.getPrdsn() %>" >
+          <input type="text" name="prdsn" size="20" maxlength="20" class="input-class"  value="<% if (!StringUtils.isEmpty(vo.getPrdsn())) { %><%=vo.getPrdsn()%><% } %>" >
         </td>
         <td style="text-align: center">
-          <input type="text" name="prddt" size="8" maxlength="8" class="input-class" value="<%= vo.getPrddt() %>" >
+          <input type="text" name="prddt" size="8" maxlength="8" class="input-class" value="<% if (!StringUtils.isEmpty(vo.getPrddt())) { %><%=vo.getPrddt()%><% } %>" >
         </td>
         <td style="text-align: center">
-          <input type="text" name="prdft" size="10" maxlength="10" class="input-class" value="<%= vo.getPrdft()%>"  >
+          <input type="text" name="prdft" size="10" maxlength="10" class="input-class" value="<% if (!StringUtils.isEmpty(vo.getPrdft())) { %><%=vo.getPrdft()%><% } %>"  >
         </td>
         <td style="text-align: center">
-          <input type="text" name="prnam" size="8" maxlength="10" class="input-class" value="<%= vo.getPrnam()%>" >
+          <input type="text" name="prnam" size="5" maxlength="5" class="input-class" value="<% if (!StringUtils.isEmpty(vo.getPrnam())) { %><%=vo.getPrnam()%><% } %>" >
         </td>
         <td style="text-align: center">
-          <input type="text" name="ebelnPo" size="10" maxlength="10" class="input-class" value="<%= vo.getEbelnPo()%>" >
+          <input type="text" name="ebelnPo" size="10" maxlength="10" class="input-class" value="<% if (!StringUtils.isEmpty(vo.getEbelnPo())) { %><%=vo.getEbelnPo()%><% } %>" >
         </td>
         <td style="text-align: center">
-          <input type="text" name="ebelpPo" size="5" maxlength="5" class="input-class" value="<%= vo.getEbelpPo()%>" >
+          <input type="text" name="ebelpPo" size="5" maxlength="5" class="input-class" value="<% if (!StringUtils.isEmpty(vo.getEbelpPo())) { %><%=vo.getEbelpPo()%><% } %>" >
         </td>
         <td style="text-align: center">
           <select name="atwrt00101" class="input-class">
-            <option value="0" id="selector" selected >-- 선택 --</option>
+            <option value="0"  selected >-- 선택 --</option>
             <option value="1" <% if (vo.getAtwrt00101().equals("1")) { %> selected  <%  } %>   >자기제</option>
             <option value="2" <% if (vo.getAtwrt00101().equals("2")) { %>  selected  <% } %>   >폴리머</option>
             <option value="3" <% if (vo.getAtwrt00101().equals("3")) { %>  selected  <% } %>   >에폭시</option>

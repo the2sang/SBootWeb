@@ -342,7 +342,7 @@ public class EDIController {
         DataSource ds = jdbcTemplate.getDataSource();
 
 
-        if (confirmCheck.equals("confirm")) {
+        if (confirmCheck.equals("true")) {
             mproMstVO.setInputSt("C"); //확정상태
             req.getSession().setAttribute("confirmCheckTrans", true);
         } else {
@@ -377,7 +377,7 @@ public class EDIController {
 
 
 
-        if (confirmCheck.equals("confirm")) {
+        if (confirmCheck.equals("true")) {
             mproMstVO.setInputSt("C"); //확정상태
             req.getSession().setAttribute("confirmCheckSwitch", true);
         } else {

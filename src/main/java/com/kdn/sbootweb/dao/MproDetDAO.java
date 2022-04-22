@@ -27,7 +27,7 @@ public class MproDetDAO {
 
             conn = ds.getConnection();
 
-            pst = conn.prepareStatement("SELECT * FROM XMLEDI_MPRO_DET WHERE EBELN = ? AND LIFNR = ? AND LIFNR_GR = ? AND EBELP = ?");
+            pst = conn.prepareStatement("SELECT * FROM IF_MPRO_DET WHERE EBELN = ? AND LIFNR = ? AND LIFNR_GR = ? AND EBELP = ?");
 
             pst.setString(1, ebeln);
             pst.setString(2, lifnr);
@@ -105,7 +105,7 @@ public class MproDetDAO {
 
             conn = ds.getConnection();
 
-            String sql = "UPDATE XMLEDI_MPRO_DET SET PRDFT = ?, PRDSN= ?, PRDDT = ?, PRNAM = ?, " + //1,2,3,4
+            String sql = "UPDATE IF_MPRO_DET SET PRDFT = ?, PRDSN= ?, PRDDT = ?, PRNAM = ?, " + //1,2,3,4
                     " EBELN_PO = ?, EBELP_PO = ?, ATWRT_001_01 = ?,  ATWRT_001_02 = ?,  ATWRT_001_03 = ?, " + //5,6,7,8,9
                     "  ATWRT_001_04 = ?,  ATWRT_001_05 = ?,  ATWRT_001_06 = ?,  ATWRT_001_07 = ?, " + //10,11,12,13
                     "  ATWRT_001_08 = ?,  ATWRT_001_09 = ?  " + //22,23,24
@@ -170,7 +170,7 @@ public class MproDetDAO {
             conn = ds.getConnection();
 
 
-            String sql = "UPDATE XMLEDI_MPRO_DET SET PRDFT = ?, PRDSN= ?, PRDDT = ?, PRNAM = ?, " + //1,2,3,4
+            String sql = "UPDATE IF_MPRO_DET SET PRDFT = ?, PRDSN= ?, PRDDT = ?, PRNAM = ?, " + //1,2,3,4
                     " EBELN_PO = ?, EBELP_PO = ?,  ATWRT_002_01 = ?,  ATWRT_002_02 = ?, " + //14,15,16,17
                     "  ATWRT_002_03 = ?,  ATWRT_002_04 = ?,  ATWRT_002_05 = ?,  ATWRT_002_06 = ?, " + //18,19,20,21
                     "  ATWRT_002_07 = ?,  ATWRT_002_08 = ?,  ATWRT_002_09 = ? " + //22,23,24

@@ -97,6 +97,16 @@
       color: #f0f0f0;
     }
 
+    .allinBtn {
+      background-color: darkseagreen;
+      cursor: pointer;
+      font-size: 11px;
+      border-radius: 2px;
+      color:white;
+      padding: 4px;
+    }
+
+
     .process {
       float: right;
       margin: 5px;
@@ -197,6 +207,15 @@
         });
       });
 
+      $("#prdftAllIn").on("click", function (e) {
+        e.preventDefault();
+        var inVal = $('input[name=prdft]').val();
+        //alert("inVal:" + inVal);
+        $(".input-class-prdft").val(inVal);
+
+
+      })
+
 
     });
 
@@ -261,10 +280,13 @@
     <table class="detail-table">
       <tr>
         <th style="width: 120px">표준인식번호</th>
-        <th style="width: 120px; background-color: #fff3cd">제조사</th>
+        <th style="width: 120px">제조사</th>
         <th style="width: 90px; background-color: #fff3cd">제조번호</th>
         <th style="width: 70px; background-color: #fff3cd" class="detail-input-th">생산일자</th>
-        <th style="width: 120px; background-color: #fff3cd">생산공장</th>
+        <th style="width: 120px; background-color: #fff3cd">
+          생산공장<br>
+          <button id="prdftAllIn" class="allinBtn" >일괄입력</button>
+        </th>
         <th style="width: 120px; background-color: #fff3cd">제작자(성명)</th>
         <th style="width: 120px; background-color: #fff3cd">인도지시서번호</th>
         <th style="width: 120px; background-color: #fff3cd">인도지시서품목</th>
@@ -298,7 +320,7 @@
           <input type="text" name="prddt" size="8" maxlength="8" class="input-class" value="<% if (!StringUtils.isEmpty(vo.getPrddt())) { %><%=vo.getPrddt()%><% } %>" >
         </td>
         <td style="text-align: center">
-          <input type="text" name="prdft" size="10" maxlength="10" class="input-class" value="<% if (!StringUtils.isEmpty(vo.getPrdft())) { %><%=vo.getPrdft()%><% } %>"  >
+          <input type="text" name="prdft" size="10" maxlength="10" class="input-class-prdft" value="<% if (!StringUtils.isEmpty(vo.getPrdft())) { %><%=vo.getPrdft()%><% } %>"  >
         </td>
         <td style="text-align: center">
           <input type="text" name="prnam" size="5" maxlength="5" class="input-class" value="<% if (!StringUtils.isEmpty(vo.getPrnam())) { %><%=vo.getPrnam()%><% } %>" >

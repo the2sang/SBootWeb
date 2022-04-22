@@ -22,7 +22,7 @@ public class MproMstDAO {
 
             conn = ds.getConnection();
 
-            pst = conn.prepareStatement("SELECT * FROM XMLEDI_MPRO_MST WHERE EBELN = ? AND LIFNR= ? AND LIFNR_GR = ? AND EBELP = ?");
+            pst = conn.prepareStatement("SELECT * FROM IF_MPRO_MST WHERE EBELN = ? AND LIFNR= ? AND LIFNR_GR = ? AND EBELP = ?");
 
             pst.setString(1, ebeln);
             pst.setString(2, lifnr);
@@ -84,7 +84,7 @@ public class MproMstDAO {
         try {
             conn = ds.getConnection();
 
-            String sql = "UPDATE XMLEDI_MPRO_MST SET INPUT_ST =  ?   WHERE EBELN = ? AND LIFNR = ? AND LIFNR_GR = ? AND EBELP = ?";
+            String sql = "UPDATE IF_MPRO_MST SET INPUT_ST =  ?   WHERE EBELN = ? AND LIFNR = ? AND LIFNR_GR = ? AND EBELP = ?";
 
             ps = conn.prepareStatement(sql);
 

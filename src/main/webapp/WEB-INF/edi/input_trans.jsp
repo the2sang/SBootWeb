@@ -23,27 +23,25 @@
 
   <link rel="stylesheet" type="text/css" href="static/css/trans.css">
 
-
   <script type="text/javascript">
-
     $(document).ready(function(){
 
       var confirmCheck = "<%= header.getInputSt()%>";
 
-        if (confirmCheck === 'C') {
-          $(".input-class").attr("disabled", true);
-          $(".input-class-prdft").attr("disabled", true);
-          $(".input-class-prddt").attr("disabled", true);
-          $(".input-class-prnam").attr("disabled", true);
-          $(".input-class-ebelnPo").attr("disabled", true);
-          $(".input-class-ebelpPo").attr("disabled", true);
-          $(".input-class-atwrt00106").attr("disabled", true);
-          $(".input-class-atwrt00107").attr("disabled", true);
-          $(".input-class-atwrt00108").attr("disabled", true);
+      if (confirmCheck === 'C') {
+        $(".input-class").attr("disabled", true);
+        $(".input-class-prdft").attr("disabled", true);
+        $(".input-class-prddt").attr("disabled", true);
+        $(".input-class-prnam").attr("disabled", true);
+        $(".input-class-ebelnPo").attr("disabled", true);
+        $(".input-class-ebelpPo").attr("disabled", true);
+        $(".input-class-atwrt00106").attr("disabled", true);
+        $(".input-class-atwrt00107").attr("disabled", true);
+        $(".input-class-atwrt00108").attr("disabled", true);
 
-          $('#tempSaveBtn').attr("disabled", true);
-          $('#tempSaveBtn').css({'color':'white', 'background-color':'darkgrey'});
-        }
+        $('#tempSaveBtn').attr("disabled", true);
+        $('#tempSaveBtn').css({'color':'white', 'background-color':'darkgrey'});
+      }
 
       // process..
       $('#confirmBtn').on("click", function(e){
@@ -182,6 +180,7 @@
 
 
     });
+
 
   </script>
 </head>

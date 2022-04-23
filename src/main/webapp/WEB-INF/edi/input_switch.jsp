@@ -19,13 +19,10 @@
   %>
 
   <script src="static/js/jquery-3.6.0.min.js" type="text/javascript" ></script>
-
-
   <link rel="stylesheet" type="text/css" href="static/css/switch.css">
 
 
   <script type="text/javascript">
-
     $(document).ready(function(){
 
       var confirmCheck = "<%= header.getInputSt()%>";
@@ -182,6 +179,7 @@
 
 
     });
+
 
   </script>
 

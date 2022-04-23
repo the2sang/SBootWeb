@@ -38,6 +38,8 @@
         $(".input-class-atwrt00106").attr("disabled", true);
         $(".input-class-atwrt00107").attr("disabled", true);
         $(".input-class-atwrt00108").attr("disabled", true);
+        $(".allinBtn").attr("disabled", true);
+        $('.allinBtn').css({'color':'white', 'background-color':'darkgrey'});
 
         $('#tempSaveBtn').attr("disabled", true);
         $('#tempSaveBtn').css({'color':'white', 'background-color':'darkgrey'});
@@ -63,6 +65,8 @@
             $(".input-class-atwrt00106").attr("disabled", true);
             $(".input-class-atwrt00107").attr("disabled", true);
             $(".input-class-atwrt00108").attr("disabled", true);
+            $(".allinBtn").attr("disabled", true);
+            $('.allinBtn').css({'color':'white', 'background-color':'darkgrey'});
 
             $('#tempSaveBtn').attr("disabled", true);
             $('#tempSaveBtn').css({'color':'white', 'background-color':'darkgrey'});
@@ -92,6 +96,8 @@
             $(".input-class-atwrt00106").attr("disabled", false);
             $(".input-class-atwrt00107").attr("disabled", false);
             $(".input-class-atwrt00108").attr("disabled", false);
+            $(".allinBtn").attr("disabled", false);
+            $('.allinBtn').css({'color':'white', 'background-color':'#3b5998'});
 
             $('#tempSaveBtn').attr("disabled", false);
             $('#tempSaveBtn').css({'color':'white', 'background-color':'#3b5998'});

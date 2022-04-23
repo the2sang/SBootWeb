@@ -32,17 +32,18 @@
 
         if (confirmCheck === 'C') {
           $(".input-class").attr("disabled", true);
+          $(".input-class-prdft").attr("disabled", true);
+          $(".input-class-prddt").attr("disabled", true);
+          $(".input-class-prnam").attr("disabled", true);
+          $(".input-class-ebelnPo").attr("disabled", true);
+          $(".input-class-ebelpPo").attr("disabled", true);
+          $(".input-class-atwrt00106").attr("disabled", true);
+          $(".input-class-atwrt00107").attr("disabled", true);
+          $(".input-class-atwrt00108").attr("disabled", true);
+
           $('#tempSaveBtn').attr("disabled", true);
           $('#tempSaveBtn').css({'color':'white', 'background-color':'darkgrey'});
         }
-
-      //alert("chk:" + confirmCheck);
-
-      <%--if (confirmCheck === 'C') {--%>
-      <%--  $(".input-class").attr("disabled", true);--%>
-      <%--  $('#tempSaveBtn').attr("disabled", true);--%>
-      <%--  $('#tempSaveBtn').css({'color':'white', 'background-color':'darkgrey'});--%>
-      <%--}--%>
 
       // process..
       $('#confirmBtn').on("click", function(e){
@@ -55,6 +56,16 @@
           success: function(data) {
             //alert("확정 취소되어 다시 등록할 수 있습니다.");
             $(".input-class").attr("disabled", true);
+            $(".input-class").attr("disabled", true);
+            $(".input-class-prdft").attr("disabled", true);
+            $(".input-class-prddt").attr("disabled", true);
+            $(".input-class-prnam").attr("disabled", true);
+            $(".input-class-ebelnPo").attr("disabled", true);
+            $(".input-class-ebelpPo").attr("disabled", true);
+            $(".input-class-atwrt00106").attr("disabled", true);
+            $(".input-class-atwrt00107").attr("disabled", true);
+            $(".input-class-atwrt00108").attr("disabled", true);
+
             $('#tempSaveBtn').attr("disabled", true);
             $('#tempSaveBtn').css({'color':'white', 'background-color':'darkgrey'});
           },
@@ -63,7 +74,6 @@
           }
         });
       });
-
 
 
       $('#cancelBtn').on("click", function(e){
@@ -76,6 +86,15 @@
           success: function(data) {
             //alert("확정되어 전송 상태로 전환되었습니다. 확정취소하시면 다시 등록할 수 있습니다.");
             $(".input-class").attr("disabled", false);
+            $(".input-class-prdft").attr("disabled", false);
+            $(".input-class-prddt").attr("disabled", false);
+            $(".input-class-prnam").attr("disabled", false);
+            $(".input-class-ebelnPo").attr("disabled", false);
+            $(".input-class-ebelpPo").attr("disabled", false);
+            $(".input-class-atwrt00106").attr("disabled", false);
+            $(".input-class-atwrt00107").attr("disabled", false);
+            $(".input-class-atwrt00108").attr("disabled", false);
+
             $('#tempSaveBtn').attr("disabled", false);
             $('#tempSaveBtn').css({'color':'white', 'background-color':'#3b5998'});
           },
@@ -94,7 +113,7 @@
           url: url,
           data: form.serialize(),
           success: function(data) {
-            alert("저장성공");
+            alert("저장완료");
           },
           error: function(data) {
             alert("저장실패");
@@ -138,6 +157,27 @@
         var inVal = $('input[name=ebelpPo]').val();
         //alert("inVal:" + inVal);
         $(".input-class-ebelpPo").val(inVal);
+      });
+
+      $("#atwrt00106AllIn").on("click", function (e) {
+        e.preventDefault();
+        var inVal = $('input[name=atwrt00106]').val();
+        //alert("inVal:" + inVal);
+        $(".input-class-atwrt00106").val(inVal);
+      });
+
+      $("#atwrt00107AllIn").on("click", function (e) {
+        e.preventDefault();
+        var inVal = $('input[name=atwrt00107]').val();
+        //alert("inVal:" + inVal);
+        $(".input-class-atwrt00107").val(inVal);
+      });
+
+      $("#atwrt00108AllIn").on("click", function (e) {
+        e.preventDefault();
+        var inVal = $('input[name=atwrt00108]').val();
+        //alert("inVal:" + inVal);
+        $(".input-class-atwrt00108").val(inVal);
       });
 
 
@@ -231,9 +271,18 @@
         <th style="width: 60px; background-color: #fff3cd">권선종류</th>
         <th style="width: 100px; background-color: #fff3cd">절연유 타입</th>
         <th style="width: 120px; background-color: #fff3cd">절연지<br> 내열온도(℃)</th>
-        <th style="width: 80px; background-color: #fff3cd">유량(L)</th>
-        <th style="width: 80px; background-color: #fff3cd">무부하손(W)</th>
-        <th style="width: 80px; background-color: #fff3cd">부하손(W)</th>
+        <th style="width: 80px; background-color: #fff3cd">
+          유량(L)<br>
+          <button id="atwrt00106AllIn" class="allinBtn" >일괄</button>
+        </th>
+        <th style="width: 80px; background-color: #fff3cd">
+          무부하손(W)<br>
+          <button id="atwrt00107AllIn" class="allinBtn" >일괄</button>
+        </th>
+        <th style="width: 80px; background-color: #fff3cd">
+          부하손(W)<br>
+          <button id="atwrt00108AllIn" class="allinBtn" >일괄</button>
+        </th>
         <th style="width: 80px; background-color: #fff3cd">변압기 절연지 종류</th>
       </tr>
       <%
@@ -259,13 +308,13 @@
           <input type="text" name="prdft" size="10" maxlength="10" class="input-class-prdft" value="<% if (!StringUtils.isEmpty(vo.getPrdft())) { %><%=vo.getPrdft()%><% } %>"  >
         </td>
         <td style="text-align: center">
-          <input type="text" name="prnam" size="5" maxlength="5" class="input-class-prnam" value="<% if (!StringUtils.isEmpty(vo.getPrnam())) { %><%=vo.getPrnam()%><% } %>" >
+          <input type="text" name="prnam" size="8" maxlength="5" class="input-class-prnam" value="<% if (!StringUtils.isEmpty(vo.getPrnam())) { %><%=vo.getPrnam()%><% } %>" >
         </td>
         <td style="text-align: center">
           <input type="text" name="ebelnPo" size="10" maxlength="10" class="input-class-ebelnPo" value="<% if (!StringUtils.isEmpty(vo.getEbelnPo())) { %><%=vo.getEbelnPo()%><% } %>" >
         </td>
         <td style="text-align: center">
-          <input type="text" name="ebelpPo" size="5" maxlength="5" class="input-class-ebelpPo" value="<% if (!StringUtils.isEmpty(vo.getEbelpPo())) { %><%=vo.getEbelpPo()%><% } %>" >
+          <input type="text" name="ebelpPo" size="10" maxlength="5" class="input-class-ebelpPo" value="<% if (!StringUtils.isEmpty(vo.getEbelpPo())) { %><%=vo.getEbelpPo()%><% } %>" >
         </td>
         <td style="text-align: center">
           <select name="atwrt00101" class="input-class">
@@ -312,20 +361,20 @@
           </select>
         </td>
         <td style="text-align: center">
-          <input type="text" name="atwrt00106" size="3" maxlength="4" class="input-class" value="<%= vo.getAtwrt00106()%>" >
+          <input type="text" name="atwrt00106" size="3" maxlength="4" class="input-class-atwrt00106" value="<%= vo.getAtwrt00106()%>" >
         </td>
         <td style="text-align: center">
-          <input type="text" name="atwrt00107" size="3" maxlength="4" class="input-class" value="<%= vo.getAtwrt00107()%>" >
+          <input type="text" name="atwrt00107" size="8" maxlength="4" class="input-class-atwrt00107" value="<%= vo.getAtwrt00107()%>" >
         </td>
         <td style="text-align: center">
-          <input type="text" name="atwrt00108" size="3" maxlength="4" class="input-class" value="<%= vo.getAtwrt00108()%>" >
+          <input type="text" name="atwrt00108" size="6" maxlength="4" class="input-class-atwrt00108" value="<%= vo.getAtwrt00108()%>" >
         </td>
         <td style="text-align: center">
           <select name="atwrt00109" class="input-class">
             <option value="0" selected>-- 선택 --</option>
             <option value="1" <% if (vo.getAtwrt00109().equals("1")) { %> selected  <%  } %>   >Kraft</option>
             <option value="2" <% if (vo.getAtwrt00109().equals("2")) { %>  selected  <% } %>   >Diamond Kraft</option>
-            <option value="3" <% if (vo.getAtwrt00109().equals("3")) { %>  selected  <% } %>   >D.Kraft(Thermally upgraded)</option>
+            <option value="3" <% if (vo.getAtwrt00109().equals("3")) { %>  selected  <% } %>   >D.K (Thermally upg..)</option>
             <option value="4" <% if (vo.getAtwrt00109().equals("4")) { %>  selected  <% } %>   >H종 노맥스지</option>
             <option value="5" <% if (vo.getAtwrt00109().equals("5")) { %>  selected  <% } %>   >기타</option>
           </select>

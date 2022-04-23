@@ -43,6 +43,8 @@
 
         $('#tempSaveBtn').attr("disabled", true);
         $('#tempSaveBtn').css({'color':'white', 'background-color':'darkgrey'});
+        $('#confirmBtn').attr("disabled", true);
+        $('#confirmBtn').css({'color':'white', 'background-color':'darkgrey'});
       }
 
       // 확정 버튼 처리

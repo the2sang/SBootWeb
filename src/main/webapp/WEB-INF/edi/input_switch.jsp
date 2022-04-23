@@ -20,94 +20,9 @@
 
   <script src="static/js/jquery-3.6.0.min.js" type="text/javascript" ></script>
 
-  <style>
 
-    body {
-      padding-left: 15px;
-    }
+  <link rel="stylesheet" type="text/css" href="static/css/switch.css">
 
-    .header-table {
-      border: 1px solid black;
-      border-collapse: collapse;
-      margin: 3px;
-      padding: 5px;
-    }
-
-    .header-table th, td {
-      border:1px solid black;
-      text-align: left;
-      padding: 6px;
-      margin-top: 5px;
-      margin-bottom: 5px;
-      font-size: 12px;
-    }
-
-    .header-table th {
-      background-color: #b6d4fe ;
-      text-align: center;
-    }
-
-    .header-table td {
-      background-color: #f0f0f0;
-    }
-
-    .detail-table {
-      border: 1px solid black;
-      border-collapse: collapse;
-      margin: 3px;
-    }
-
-    .detail-table th, td {
-      border:1px solid black;
-      text-align: left;
-      padding: 6px;
-      margin-top: 5px;
-      margin-bottom: 5px;
-      font-size: 12px;
-    }
-
-    .detail-table th {
-      background-color: #b6d4fe ;
-      text-align: center;
-    }
-
-    h2 {
-      padding-bottom: 20px;
-      text-align: center;
-    }
-
-    .input-class {
-      font-size: 12px;
-      text-align: center;
-    }
-
-    button {
-      all:unset;
-      background-color: #06357a;
-      color: white;
-      padding: 5px 20px;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 12px;
-    }
-
-    button:hover {
-      background-color: #06357a;
-      color: #f0f0f0;
-
-    }
-
-    .process {
-      float: right;
-      margin: 5px;
-    }
-
-    .confirm {
-      float: right;
-      margin: 5px;
-    }
-
-  </style>
 
   <script type="text/javascript">
 
@@ -117,6 +32,15 @@
 
       if (confirmCheck === 'C') {
         $(".input-class").attr("disabled", true);
+        $(".input-class-prdft").attr("disabled", true);
+        $(".input-class-prddt").attr("disabled", true);
+        $(".input-class-prnam").attr("disabled", true);
+        $(".input-class-ebelnPo").attr("disabled", true);
+        $(".input-class-ebelpPo").attr("disabled", true);
+        $(".input-class-atwrt00207").attr("disabled", true);
+        $(".input-class-atwrt00208").attr("disabled", true);
+        $(".input-class-atwrt00209").attr("disabled", true);
+
         $('#tempSaveBtn').attr("disabled", true);
         $('#tempSaveBtn').css({'color':'white', 'background-color':'darkgrey'});
       }
@@ -131,6 +55,15 @@
           url: url,
           success: function(data) {
             $(".input-class").attr("disabled", true);
+            $(".input-class-prdft").attr("disabled", true);
+            $(".input-class-prddt").attr("disabled", true);
+            $(".input-class-prnam").attr("disabled", true);
+            $(".input-class-ebelnPo").attr("disabled", true);
+            $(".input-class-ebelpPo").attr("disabled", true);
+            $(".input-class-atwrt00207").attr("disabled", true);
+            $(".input-class-atwrt00208").attr("disabled", true);
+            $(".input-class-atwrt00209").attr("disabled", true);
+
             $('#tempSaveBtn').attr("disabled", true);
             $('#tempSaveBtn').css({'color':'white', 'background-color':'darkgrey'});
             //alert("확정되어 전송 상태로 전환되었습니다. 확정취소하시면 다시 등록할 수 있습니다.");
@@ -151,6 +84,15 @@
           url: url,
           success: function(data) {
             $(".input-class").attr("disabled", false);
+            $(".input-class-prdft").attr("disabled", false);
+            $(".input-class-prddt").attr("disabled", false);
+            $(".input-class-prnam").attr("disabled", false);
+            $(".input-class-ebelnPo").attr("disabled", false);
+            $(".input-class-ebelpPo").attr("disabled", false);
+            $(".input-class-atwrt00106").attr("disabled", false);
+            $(".input-class-atwrt00107").attr("disabled", false);
+            $(".input-class-atwrt00108").attr("disabled", false);
+
             $('#tempSaveBtn').attr("disabled", false);
             $('#tempSaveBtn').css({'color':'white', 'background-color':'#3b5998'});
             //alert("확정되어 전송 상태로 전환되었습니다. 확정취소하시면 다시 등록할 수 있습니다.");
@@ -171,12 +113,71 @@
           url: url,
           data: form.serialize(),
           success: function(data) {
-            alert("저장성공");
+            alert("저장완료");
           },
           error: function(data) {
             alert("저장실패");
           }
         });
+      });
+
+      $("#prdftAllIn").on("click", function (e) {
+        e.preventDefault();
+        var inVal = $('input[name=prdft]').val();
+        //alert("inVal:" + inVal);
+        $(".input-class-prdft").val(inVal);
+
+      });
+
+      $("#prddtAllIn").on("click", function (e) {
+        e.preventDefault();
+        var inVal = $('input[name=prddt]').val();
+        //alert("inVal:" + inVal);
+        $(".input-class-prddt").val(inVal);
+
+      });
+
+      $("#prnamAllIn").on("click", function (e) {
+        e.preventDefault();
+        var inVal = $('input[name=prnam]').val();
+        //alert("inVal:" + inVal);
+        $(".input-class-prnam").val(inVal);
+
+      });
+
+      $("#ebelnPoAllIn").on("click", function (e) {
+        e.preventDefault();
+        var inVal = $('input[name=ebelnPo]').val();
+        //alert("inVal:" + inVal);
+        $(".input-class-ebelnPo").val(inVal);
+      });
+
+      $("#ebelpPoAllIn").on("click", function (e) {
+        e.preventDefault();
+        var inVal = $('input[name=ebelpPo]').val();
+        //alert("inVal:" + inVal);
+        $(".input-class-ebelpPo").val(inVal);
+      });
+
+      $("#atwrt00207AllIn").on("click", function (e) {
+        e.preventDefault();
+        var inVal = $('input[name=atwrt00207]').val();
+        //alert("inVal:" + inVal);
+        $(".input-class-atwrt00207").val(inVal);
+      });
+
+      $("#atwrt00208AllIn").on("click", function (e) {
+        e.preventDefault();
+        var inVal = $('input[name=atwrt00208]').val();
+        //alert("inVal:" + inVal);
+        $(".input-class-atwrt00208").val(inVal);
+      });
+
+      $("#atwrt00209AllIn").on("click", function (e) {
+        e.preventDefault();
+        var inVal = $('input[name=atwrt00209]').val();
+        //alert("inVal:" + inVal);
+        $(".input-class-atwrt00209").val(inVal);
       });
 
 
@@ -246,20 +247,44 @@
       <th style="width: 120px">표준인식번호</th>
       <th style="width: 80px">제조사</th>
       <th style="width: 90px; background-color: #fff3cd">제조번호</th>
-      <th style="width: 70px; background-color: #fff3cd" class="detail-input-th">생산일자</th>
-      <th style="width: 120px; background-color: #fff3cd">생산공장</th>
-      <th style="width: 120px; background-color: #fff3cd">제작자</th>
-      <th style="width: 120px; background-color: #fff3cd">인도지시서번호</th>
-      <th style="width: 120px; background-color: #fff3cd">인도지시서품목</th>
+      <th style="width: 70px; background-color: #fff3cd" class="detail-input-th">
+        생산일자<br>
+        <button id="prddtAllIn" class="allinBtn" >일괄입력</button>
+      </th>
+      <th style="width: 120px; background-color: #fff3cd">
+        생산공장<br>
+        <button id="prdftAllIn" class="allinBtn" >일괄입력</button>
+      </th>
+      <th style="width: 120px; background-color: #fff3cd">
+        제작자(성명)<br>
+        <button id="prnamAllIn" class="allinBtn" >일괄입력</button>
+      </th>
+      <th style="width: 120px; background-color: #fff3cd">
+        인도지시서번호<br>
+        <button id="ebelnPoAllIn" class="allinBtn" >일괄입력</button>
+      </th>
+      <th style="width: 120px; background-color: #fff3cd">
+        인도지시서품목<br>
+        <button id="ebelpPoAllIn" class="allinBtn" >일괄입력</button>
+      </th>
       <th style="width: 100px; background-color: #fff3cd">정격전류(A)</th>
       <th style="width: 120px; background-color: #fff3cd">스위칭 매체</th>
       <th style="width: 60px; background-color: #fff3cd">절연매체</th>
       <th style="width: 100px; background-color: #fff3cd">매커니즘<br> 조작방식</th>
       <th style="width: 120px; background-color: #fff3cd">부싱타입(1차)</th>
       <th style="width: 80px; background-color: #fff3cd">부싱타입(2차)</th>
-      <th style="width: 80px; background-color: #fff3cd">정격가스압력(Mpa)</th>
-      <th style="width: 80px; background-color: #fff3cd">최저보증<br> 가스압력(Mpa)</th>
-      <th style="width: 80px; background-color: #fff3cd">가스량</th>
+      <th style="width: 80px; background-color: #fff3cd">
+        정격가스압력(Mpa)<br>
+        <button id="atwrt00207AllIn" class="allinBtn" >일괄</button>
+      </th>
+      <th style="width: 80px; background-color: #fff3cd">
+        최저보증<br> 가스압력(Mpa)<br>
+        <button id="atwrt00708AllIn" class="allinBtn" >일괄</button>
+      </th>
+      <th style="width: 80px; background-color: #fff3cd">
+        가스량<br>
+        <button id="atwrt00209AllIn" class="allinBtn" >일괄</button>
+      </th>
     </tr>
     <%
       for (MproDetVO vo : detailList) {
@@ -279,19 +304,19 @@
         <input type="text" name="prdsn" size="20" maxlength="20" class="input-class"  value="<% if (!StringUtils.isEmpty(vo.getPrdsn())) { %><%=vo.getPrdsn()%><% } %>" >
       </td>
       <td style="text-align: center">
-        <input type="text" name="prddt" size="8" maxlength="8" class="input-class" value="<% if (!StringUtils.isEmpty(vo.getPrdsn())) { %><%=vo.getPrddt()%><% } %>" >
+        <input type="text" name="prddt" size="8" maxlength="8" class="input-class-prddt" value="<% if (!StringUtils.isEmpty(vo.getPrdsn())) { %><%=vo.getPrddt()%><% } %>" >
       </td>
       <td style="text-align: center">
-        <input type="text" name="prdft" size="10" maxlength="10" class="input-class" value="<% if (!StringUtils.isEmpty(vo.getPrdft())) { %><%=vo.getPrdft()%><% } %>"  >
+        <input type="text" name="prdft" size="10" maxlength="10" class="input-class-prdft" value="<% if (!StringUtils.isEmpty(vo.getPrdft())) { %><%=vo.getPrdft()%><% } %>"  >
       </td>
       <td style="text-align: center">
-        <input type="text" name="prnam" size="6" maxlength="5" class="input-class" value="<% if (!StringUtils.isEmpty(vo.getPrnam())) { %><%=vo.getPrnam()%><% } %>" >
+        <input type="text" name="prnam" size="6" maxlength="5" class="input-class-prnam" value="<% if (!StringUtils.isEmpty(vo.getPrnam())) { %><%=vo.getPrnam()%><% } %>" >
       </td>
       <td style="text-align: center">
-        <input type="text" name="ebelnPo" size="10" maxlength="10" class="input-class" value="<% if (!StringUtils.isEmpty(vo.getEbelnPo())) { %><%=vo.getEbelnPo()%><% } %>" >
+        <input type="text" name="ebelnPo" size="10" maxlength="10" class="input-class-ebelnPo" value="<% if (!StringUtils.isEmpty(vo.getEbelnPo())) { %><%=vo.getEbelnPo()%><% } %>" >
       </td>
       <td style="text-align: center">
-        <input type="text" name="ebelpPo" size="5" maxlength="5" class="input-class" value="<% if (!StringUtils.isEmpty(vo.getEbelpPo())) { %><%=vo.getEbelpPo()%><% } %>" >
+        <input type="text" name="ebelpPo" size="5" maxlength="5" class="input-class-ebelpPo" value="<% if (!StringUtils.isEmpty(vo.getEbelpPo())) { %><%=vo.getEbelpPo()%><% } %>" >
       </td>
       <td style="text-align: center">
         <select name="atwrt00201" class="input-class">
@@ -344,13 +369,13 @@
         </select>
       </td>
       <td style="text-align: center">
-        <input type="text" name="atwrt00207" size="6" maxlength="6" class="input-class" value="<%= vo.getAtwrt00207()%>" >
+        <input type="text" name="atwrt00207" size="6" maxlength="6" class="input-class-atwrt00207" value="<%= vo.getAtwrt00207()%>" >
       </td>
       <td style="text-align: center;" >
-        <input type="text" name="atwrt00208" size="6" maxlength="6" class="input-class" value="<%= vo.getAtwrt00208()%>" >
+        <input type="text" name="atwrt00208" size="6" maxlength="6" class="input-class-atwrt00208" value="<%= vo.getAtwrt00208()%>" >
       </td>
       <td style="text-align: center;">
-        <input type="text" name="atwrt00209" size="6" maxlength="6" class="input-class" value="<%= vo.getAtwrt00209()%>" >
+        <input type="text" name="atwrt00209" size="6" maxlength="6" class="input-class-atwrt00209" value="<%= vo.getAtwrt00209()%>" >
       </td>
     </tr>
     <%

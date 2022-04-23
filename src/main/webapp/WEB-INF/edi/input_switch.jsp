@@ -48,10 +48,14 @@
       $('#confirmBtn').on("click", function(e){
         e.preventDefault();
 
-        var url = "/confirmMproDetSwitchData?confirmData=true";
+        $("#inputSt").val('C');
+
+        var form = $("#saveForm");
+        var url = form.attr('action');
         $.ajax({
-          type: "GET",
+          type: "POST",
           url: url,
+          data: form.serialize(),
           success: function(data) {
             $(".input-class").attr("disabled", true);
             $(".input-class-prdft").attr("disabled", true);
@@ -68,6 +72,10 @@
             $('#tempSaveBtn').attr("disabled", true);
             $('#tempSaveBtn').css({'color':'white', 'background-color':'darkgrey'});
             //alert("확정되어 전송 상태로 전환되었습니다. 확정취소하시면 다시 등록할 수 있습니다.");
+
+            //입력상태값 초기화
+            $("#inputSt").val('');
+
 
           },
           error: function(data) {
@@ -90,9 +98,9 @@
             $(".input-class-prnam").attr("disabled", false);
             $(".input-class-ebelnPo").attr("disabled", false);
             $(".input-class-ebelpPo").attr("disabled", false);
-            $(".input-class-atwrt00106").attr("disabled", false);
-            $(".input-class-atwrt00107").attr("disabled", false);
-            $(".input-class-atwrt00108").attr("disabled", false);
+            $(".input-class-atwrt00207").attr("disabled", false);
+            $(".input-class-atwrt00208").attr("disabled", false);
+            $(".input-class-atwrt00209").attr("disabled", false);
             $(".allinBtn").attr("disabled", true);
             $('.allinBtn').css({'color':'white', 'background-color':'#3b5998'});
 
@@ -247,6 +255,9 @@
 
 
 <form class="mproForm" id="saveForm"  action="/updateMproDetSwitchList" method="post" >
+
+  <!-- 확정시 아이템을 저장하고 입력상태값을 업데이트 하기 위해 -->
+  <input type="hidden" id="inputSt" name="inputSt" value="I" />
   <table class="detail-table">
     <tr>
       <th style="width: 120px">표준인식번호</th>

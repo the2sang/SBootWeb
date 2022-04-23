@@ -49,10 +49,14 @@
       $('#confirmBtn').on("click", function(e){
         e.preventDefault();
 
-        var url = "/confirmMproDetTransData?confirmData=true";
+        $("#inputSt").val('C');
+
+        var form = $("#saveForm");
+        var url = form.attr('action');
         $.ajax({
-          type: "GET",
+          type: "POST",
           url: url,
+          data: form.serialize(),
           success: function(data) {
             //alert("확정 취소되어 다시 등록할 수 있습니다.");
             $(".input-class").attr("disabled", true);
@@ -70,6 +74,10 @@
 
             $('#tempSaveBtn').attr("disabled", true);
             $('#tempSaveBtn').css({'color':'white', 'background-color':'darkgrey'});
+
+            //입력상태값 초기화
+            $("#inputSt").val('');
+
           },
           error: function(data) {
             alert("저장실패");
@@ -246,6 +254,9 @@
       </tr>
   </table>
   <form class="mproForm" id="saveForm"  action="/updateMproDetTransList" method="post" >
+
+    <!-- 확정시 아이템을 저장하고 입력상태값을 업데이트 하기 위해 -->
+    <input type="hidden" id="inputSt" name="inputSt" value="I" />
     <table class="detail-table">
       <tr>
         <th style="width: 120px">표준인식번호</th>

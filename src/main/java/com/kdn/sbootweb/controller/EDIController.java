@@ -98,6 +98,9 @@ public class EDIController {
 
         DataSource ds = jdbcTemplate.getDataSource();
 
+        String inputSt = req.getParameter("inputSt");  // 확정버튼 클릭시 값이 C 로 넘어오고 디폴트 값은 I
+
+
         String[] ebelns = req.getParameterValues("ebeln");
         String[] lifnrs = req.getParameterValues("lifnr");
         String[] lifnrGrs = req.getParameterValues("lifnrGr");
@@ -197,6 +200,13 @@ public class EDIController {
 
         boolean updateResult = MproDetDAO.saveMproDetTransList(ds, saveList);
 
+        //확정버튼 클릭시(C) 상태값 업데이트
+        if (updateResult == true && inputSt.equals("C")) {
+            mproMstVO.setInputSt("C");
+            updateResult = MproMstDAO.confirmMproDetData(ds, mproMstVO);
+        }
+
+
         ModelAndView mv = new ModelAndView();
         mv.addObject("transHeader", mproMstVO);
         mv.addObject("transItem", saveList);
@@ -215,6 +225,8 @@ public class EDIController {
 
         List<MproDetVO> saveList = new ArrayList<>();
         MproDetVO vo;
+
+        String inputSt = req.getParameter("inputSt");  // 확정버튼 클릭시 값이 C 로 넘어오고 디폴트 값은 I
 
         DataSource ds = jdbcTemplate.getDataSource();
 
@@ -316,6 +328,12 @@ public class EDIController {
         }
 
         boolean updateResult = MproDetDAO.saveMproDetSwitchList(ds, saveList);
+
+        //확정버튼 클릭시(C) 상태값 업데이트
+        if (updateResult == true && inputSt.equals("C")) {
+            mproMstVO.setInputSt("C");
+            updateResult = MproMstDAO.confirmMproDetData(ds, mproMstVO);
+        }
 
         ModelAndView mv = new ModelAndView();
         mv.addObject("switchHeader", mproMstVO);

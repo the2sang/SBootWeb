@@ -61,6 +61,8 @@ public class EDIController {
     }
 
 
+
+
     @RequestMapping(method = RequestMethod.GET, value = "/trans")
     public ModelAndView getTransList() {
 

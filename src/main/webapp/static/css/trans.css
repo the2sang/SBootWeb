@@ -1,0 +1,131 @@
+@charset "utf-8";
+
+
+body {
+    padding-left: 15px;
+}
+
+.header-table {
+    border: 1px solid black;
+    border-collapse: collapse;
+    margin: 3px;
+    padding: 5px;
+}
+
+.header-table th, td {
+    border:1px solid black;
+    text-align: left;
+    padding: 6px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 12px;
+}
+
+.header-table th {
+    background-color: #b6d4fe ;
+    text-align: center;
+}
+
+.header-table td {
+    background-color: #f0f0f0;
+}
+
+.detail-table {
+    border: 1px solid black;
+    border-collapse: collapse;
+    margin: 3px;
+}
+
+.detail-table th, td {
+    border:1px solid black;
+    text-align: left;
+    padding: 6px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 12px;
+}
+
+.detail-table th {
+    background-color: #b6d4fe ;
+    text-align: center;
+}
+
+h2 {
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+.input-class {
+    font-size: 12px;
+    text-align: center;
+}
+
+.input-class-prdft {
+    font-size: 12px;
+    text-align: center;
+}
+
+.input-class-prddt {
+    font-size: 12px;
+    text-align: center;
+}
+
+.input-class-prnam {
+    font-size: 12px;
+    text-align: center;
+}
+
+.input-class-ebelnPo {
+    font-size: 12px;
+    text-align: center;
+}
+
+.input-class-ebelpPo {
+    font-size: 12px;
+    text-align: center;
+}
+
+
+button {
+    all:unset;
+    background-color: #06357a;
+    color: white;
+    padding: 5px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+button:hover {
+    background-color: #06357a;
+    color: #f0f0f0;
+}
+
+.allinBtn {
+    background-color: darkseagreen;
+    cursor: pointer;
+    font-size: 11px;
+    border-radius: 2px;
+    color:white;
+    padding: 4px;
+}
+
+
+.process {
+    float: right;
+    margin: 5px;
+}
+
+.confirmBtnArea {
+    float: left;
+    margin: 5px;
+}
+
+.confirm {
+    float: right;
+    margin: 5px;
+}
+
+#selector{
+    color:red;
+}

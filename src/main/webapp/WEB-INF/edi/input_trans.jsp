@@ -21,113 +21,8 @@
 
   <script src="static/js/jquery-3.6.0.min.js" type="text/javascript" ></script>
 
-  <style>
+  <link rel="stylesheet" type="text/css" href="static/css/trans.css">
 
-    body {
-      padding-left: 15px;
-    }
-
-    .header-table {
-      border: 1px solid black;
-      border-collapse: collapse;
-      margin: 3px;
-      padding: 5px;
-    }
-
-    .header-table th, td {
-      border:1px solid black;
-      text-align: left;
-      padding: 6px;
-      margin-top: 5px;
-      margin-bottom: 5px;
-      font-size: 12px;
-    }
-
-    .header-table th {
-      background-color: #b6d4fe ;
-      text-align: center;
-    }
-
-    .header-table td {
-      background-color: #f0f0f0;
-    }
-
-    .detail-table {
-      border: 1px solid black;
-      border-collapse: collapse;
-      margin: 3px;
-    }
-
-    .detail-table th, td {
-      border:1px solid black;
-      text-align: left;
-      padding: 6px;
-      margin-top: 5px;
-      margin-bottom: 5px;
-      font-size: 12px;
-    }
-
-    .detail-table th {
-      background-color: #b6d4fe ;
-      text-align: center;
-    }
-
-    h2 {
-      padding-bottom: 20px;
-      text-align: center;
-    }
-
-    .input-class {
-      font-size: 12px;
-      text-align: center;
-    }
-
-    button {
-      all:unset;
-      background-color: #06357a;
-      color: white;
-      padding: 5px 20px;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 12px;
-    }
-
-    button:hover {
-      background-color: #06357a;
-      color: #f0f0f0;
-    }
-
-    .allinBtn {
-      background-color: darkseagreen;
-      cursor: pointer;
-      font-size: 11px;
-      border-radius: 2px;
-      color:white;
-      padding: 4px;
-    }
-
-
-    .process {
-      float: right;
-      margin: 5px;
-    }
-
-    .confirmBtnArea {
-      float: left;
-      margin: 5px;
-    }
-
-    .confirm {
-      float: right;
-      margin: 5px;
-    }
-
-    #selector{
-      color:red;
-    }
-
-
-  </style>
 
   <script type="text/javascript">
 
@@ -213,8 +108,37 @@
         //alert("inVal:" + inVal);
         $(".input-class-prdft").val(inVal);
 
+      });
 
-      })
+      $("#prddtAllIn").on("click", function (e) {
+        e.preventDefault();
+        var inVal = $('input[name=prddt]').val();
+        //alert("inVal:" + inVal);
+        $(".input-class-prddt").val(inVal);
+
+      });
+
+      $("#prnamAllIn").on("click", function (e) {
+        e.preventDefault();
+        var inVal = $('input[name=prnam]').val();
+        //alert("inVal:" + inVal);
+        $(".input-class-prnam").val(inVal);
+
+      });
+
+      $("#ebelnPoAllIn").on("click", function (e) {
+        e.preventDefault();
+        var inVal = $('input[name=ebelnPo]').val();
+        //alert("inVal:" + inVal);
+        $(".input-class-ebelnPo").val(inVal);
+      });
+
+      $("#ebelpPoAllIn").on("click", function (e) {
+        e.preventDefault();
+        var inVal = $('input[name=ebelpPo]').val();
+        //alert("inVal:" + inVal);
+        $(".input-class-ebelpPo").val(inVal);
+      });
 
 
     });
@@ -282,14 +206,26 @@
         <th style="width: 120px">표준인식번호</th>
         <th style="width: 120px">제조사</th>
         <th style="width: 90px; background-color: #fff3cd">제조번호</th>
-        <th style="width: 70px; background-color: #fff3cd" class="detail-input-th">생산일자</th>
+        <th style="width: 70px; background-color: #fff3cd" class="detail-input-th">
+          생산일자<br>
+          <button id="prddtAllIn" class="allinBtn" >일괄입력</button>
+        </th>
         <th style="width: 120px; background-color: #fff3cd">
           생산공장<br>
           <button id="prdftAllIn" class="allinBtn" >일괄입력</button>
         </th>
-        <th style="width: 120px; background-color: #fff3cd">제작자(성명)</th>
-        <th style="width: 120px; background-color: #fff3cd">인도지시서번호</th>
-        <th style="width: 120px; background-color: #fff3cd">인도지시서품목</th>
+        <th style="width: 120px; background-color: #fff3cd">
+          제작자(성명)<br>
+          <button id="prnamAllIn" class="allinBtn" >일괄입력</button>
+        </th>
+        <th style="width: 120px; background-color: #fff3cd">
+          인도지시서번호<br>
+          <button id="ebelnPoAllIn" class="allinBtn" >일괄입력</button>
+        </th>
+        <th style="width: 120px; background-color: #fff3cd">
+          인도지시서품목<br>
+          <button id="ebelpPoAllIn" class="allinBtn" >일괄입력</button>
+        </th>
         <th style="width: 120px; background-color: #fff3cd">1차 부싱타입</th>
         <th style="width: 120px; background-color: #fff3cd">2차 부싱타입</th>
         <th style="width: 60px; background-color: #fff3cd">권선종류</th>
@@ -317,19 +253,19 @@
           <input type="text" name="prdsn" size="20" maxlength="20" class="input-class"  value="<% if (!StringUtils.isEmpty(vo.getPrdsn())) { %><%=vo.getPrdsn()%><% } %>" >
         </td>
         <td style="text-align: center">
-          <input type="text" name="prddt" size="8" maxlength="8" class="input-class" value="<% if (!StringUtils.isEmpty(vo.getPrddt())) { %><%=vo.getPrddt()%><% } %>" >
+          <input type="text" name="prddt" size="8" maxlength="8" class="input-class-prddt" value="<% if (!StringUtils.isEmpty(vo.getPrddt())) { %><%=vo.getPrddt()%><% } %>" >
         </td>
         <td style="text-align: center">
           <input type="text" name="prdft" size="10" maxlength="10" class="input-class-prdft" value="<% if (!StringUtils.isEmpty(vo.getPrdft())) { %><%=vo.getPrdft()%><% } %>"  >
         </td>
         <td style="text-align: center">
-          <input type="text" name="prnam" size="5" maxlength="5" class="input-class" value="<% if (!StringUtils.isEmpty(vo.getPrnam())) { %><%=vo.getPrnam()%><% } %>" >
+          <input type="text" name="prnam" size="5" maxlength="5" class="input-class-prnam" value="<% if (!StringUtils.isEmpty(vo.getPrnam())) { %><%=vo.getPrnam()%><% } %>" >
         </td>
         <td style="text-align: center">
-          <input type="text" name="ebelnPo" size="10" maxlength="10" class="input-class" value="<% if (!StringUtils.isEmpty(vo.getEbelnPo())) { %><%=vo.getEbelnPo()%><% } %>" >
+          <input type="text" name="ebelnPo" size="10" maxlength="10" class="input-class-ebelnPo" value="<% if (!StringUtils.isEmpty(vo.getEbelnPo())) { %><%=vo.getEbelnPo()%><% } %>" >
         </td>
         <td style="text-align: center">
-          <input type="text" name="ebelpPo" size="5" maxlength="5" class="input-class" value="<% if (!StringUtils.isEmpty(vo.getEbelpPo())) { %><%=vo.getEbelpPo()%><% } %>" >
+          <input type="text" name="ebelpPo" size="5" maxlength="5" class="input-class-ebelpPo" value="<% if (!StringUtils.isEmpty(vo.getEbelpPo())) { %><%=vo.getEbelpPo()%><% } %>" >
         </td>
         <td style="text-align: center">
           <select name="atwrt00101" class="input-class">

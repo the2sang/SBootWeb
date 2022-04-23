@@ -12,7 +12,7 @@ body {
     padding: 5px;
 }
 
-.header-table th, td {
+.header-table th {
     border:1px solid black;
     text-align: left;
     padding: 6px;
@@ -55,32 +55,16 @@ h2 {
     text-align: center;
 }
 
-.input-class {
-    font-size: 12px;
-    text-align: center;
-}
-
-.input-class-prdft {
-    font-size: 12px;
-    text-align: center;
-}
-
-.input-class-prddt {
-    font-size: 12px;
-    text-align: center;
-}
-
-.input-class-prnam {
-    font-size: 12px;
-    text-align: center;
-}
-
-.input-class-ebelnPo {
-    font-size: 12px;
-    text-align: center;
-}
-
-.input-class-ebelpPo {
+.input-class,
+.input-class-prddt,
+.input-class-prdft,
+.input-class-prnam,
+.input-class-ebelnPo,
+.input-class-ebelpPo,
+.input-class-atwrt00106,
+.input-class-atwrt00107,
+.input-class-atwrt00108
+{
     font-size: 12px;
     text-align: center;
 }

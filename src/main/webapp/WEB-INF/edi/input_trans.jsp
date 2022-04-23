@@ -25,7 +25,7 @@
 
   <script type="text/javascript">
     $(document).ready(function(){
-
+      //화면 로딩시 처리
       var confirmCheck = "<%= header.getInputSt()%>";
 
       if (confirmCheck === 'C') {
@@ -45,7 +45,7 @@
         $('#tempSaveBtn').css({'color':'white', 'background-color':'darkgrey'});
       }
 
-      // process..
+      // 확정 버튼 처리
       $('#confirmBtn').on("click", function(e){
         e.preventDefault();
 
@@ -87,7 +87,7 @@
         });
       });
 
-
+      //확정 취조 버튼 처리
       $('#cancelBtn').on("click", function(e){
         e.preventDefault();
 
@@ -121,6 +121,7 @@
         });
       });
 
+      //임시저장 버튼 처리
       $("#tempSaveBtn").click(function(ev) {
         ev.preventDefault();
         var form = $("#saveForm");
@@ -138,7 +139,9 @@
         });
       });
 
-      $("#prdftAllIn").on("click", function (e) {
+
+      //일괄등록 버튼 처리 - 8개 버튼
+      $("#rdftAllIn").on("click", function (e) {
         e.preventDefault();
         var inVal = $('input[name=prdft]').val();
         //alert("inVal:" + inVal);

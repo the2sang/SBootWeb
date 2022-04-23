@@ -71,6 +71,9 @@
 
             $('#tempSaveBtn').attr("disabled", true);
             $('#tempSaveBtn').css({'color':'white', 'background-color':'darkgrey'});
+            $('#confirmBtn').attr("disabled", true);
+            $('#confirmBtn').css({'color':'white', 'background-color':'darkgrey'});
+
             //alert("확정되어 전송 상태로 전환되었습니다. 확정취소하시면 다시 등록할 수 있습니다.");
 
             //입력상태값 초기화
@@ -92,6 +95,7 @@
           type: "GET",
           url: url,
           success: function(data) {
+            //alert("cancel:" + confirmCheck);
             $(".input-class").attr("disabled", false);
             $(".input-class-prdft").attr("disabled", false);
             $(".input-class-prddt").attr("disabled", false);
@@ -101,13 +105,13 @@
             $(".input-class-atwrt00207").attr("disabled", false);
             $(".input-class-atwrt00208").attr("disabled", false);
             $(".input-class-atwrt00209").attr("disabled", false);
-            $(".allinBtn").attr("disabled", true);
+            $(".allinBtn").attr("disabled", false);
             $('.allinBtn').css({'color':'white', 'background-color':'#3b5998'});
 
             $('#tempSaveBtn').attr("disabled", false);
             $('#tempSaveBtn').css({'color':'white', 'background-color':'#3b5998'});
-
-            //alert("확정되어 전송 상태로 전환되었습니다. 확정취소하시면 다시 등록할 수 있습니다.");
+            $('#confirmBtn').attr("disabled", false);
+            $('#confirmBtn').css({'color':'white', 'background-color':'#3b5998'});
 
           },
           error: function(data) {

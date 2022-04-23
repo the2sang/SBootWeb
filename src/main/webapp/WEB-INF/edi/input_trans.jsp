@@ -74,6 +74,8 @@
 
             $('#tempSaveBtn').attr("disabled", true);
             $('#tempSaveBtn').css({'color':'white', 'background-color':'darkgrey'});
+            $('#confirmBtn').attr("disabled", true);
+            $('#confirmBtn').css({'color':'white', 'background-color':'darkgrey'});
 
             //입력상태값 초기화
             $("#inputSt").val('');
@@ -109,6 +111,9 @@
 
             $('#tempSaveBtn').attr("disabled", false);
             $('#tempSaveBtn').css({'color':'white', 'background-color':'#3b5998'});
+            $('#confirmBtn').attr("disabled", false);
+            $('#confirmBtn').css({'color':'white', 'background-color':'#3b5998'});
+
           },
           error: function(data) {
             alert("저장실패");

@@ -2,6 +2,7 @@
 <%@ page import="com.kdn.sbootweb.vo.MproDetVO" %>
 <%@ page import="java.util.List" %>
 <%@ page import="org.apache.commons.lang3.StringUtils" %>
+<%@ page import="java.util.Iterator" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 
 <html>
@@ -312,7 +313,9 @@
         <th style="width: 80px; background-color: #fff3cd">변압기 절연지 종류</th>
       </tr>
       <%
-        for (MproDetVO vo : detailList) {
+//        for (MproDetVO vo : detailList) {
+        for (Iterator iter = detailList.iterator(); iter.hasNext();) {
+          MproDetVO vo = (MproDetVO) iter.next();
 
       %>
       <tr>

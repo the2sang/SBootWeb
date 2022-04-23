@@ -54,7 +54,16 @@ h2 {
     text-align: center;
 }
 
-.input-class {
+.input-class,
+.input-class-prddt,
+.input-class-prdft,
+.input-class-prnam,
+.input-class-ebelnPo,
+.input-class-ebelpPo,
+.input-class-atwrt00207,
+.input-class-atwrt00208,
+.input-class-atwrt00209
+{
     font-size: 12px;
     text-align: center;
 }
